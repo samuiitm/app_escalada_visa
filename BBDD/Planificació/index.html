@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esquema de la Base de Dades</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>BBDD APP ESCALADA</h1>
+    <h2>Samuel Cañadas & Victor Extremera</h2>
+</header>
+
+<div class="container">
+    <div class="table-container">
+        <div class="table-title">1. Taula: Escaladors</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Camp</th>
+                    <th>Descripció</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id_escalador (PK)</td>
+                    <td>Identificador únic de l'escalador</td>
+                </tr>
+                <tr>
+                    <td>nom</td>
+                    <td>Nom de l'escalador</td>
+                </tr>
+                <tr>
+                    <td>àlies</td>
+                    <td>Àlies de l'escalador</td>
+                </tr>
+                <tr>
+                    <td>edat</td>
+                    <td>Edat de l'escalador</td>
+                </tr>
+                <tr>
+                    <td>nivell_màxim</td>
+                    <td>Nivell màxim assolit per l'escalador (de 4 a 9c+)</td>
+                </tr>
+                <tr>
+                    <td>via_nivell_max</td>
+                    <td>Via en què ha assolit el seu nivell màxim (FK a Vies)</td>
+                </tr>
+                <tr>
+                    <td>estil_preferit</td>
+                    <td>Estil preferit d'escalada (esportiva, clàssica, gel)</td>
+                </tr>
+                <tr>
+                    <td>fita</td>
+                    <td>Fita més rellevant aconseguida per l'escalador</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <div class="table-title">2. Taula: Escoles</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Camp</th>
+                    <th>Descripció</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id_escola (PK)</td>
+                    <td>Identificador únic de l'escola</td>
+                </tr>
+                <tr>
+                    <td>nom</td>
+                    <td>Nom de l'escola</td>
+                </tr>
+                <tr>
+                    <td>ciutat</td>
+                    <td>Ciutat de l'escola</td>
+                </tr>
+                <tr>
+                    <td>població</td>
+                    <td>Població de l'escola</td>
+                </tr>
+                <tr>
+                    <td>regió</td>
+                    <td>Regió de l'escola</td>
+                </tr>
+                <tr>
+                    <td>latitud</td>
+                    <td>Coordinades geogràfiques (latitud)</td>
+                </tr>
+                <tr>
+                    <td>longitud</td>
+                    <td>Coordinades geogràfiques (longitud)</td>
+                </tr>
+                <tr>
+                    <td>aproximació</td>
+                    <td>Descripció de com arribar a l'escola</td>
+                </tr>
+                <tr>
+                    <td>popularitat</td>
+                    <td>Popularitat de l'escola (baixa, mitjana, alta)</td>
+                </tr>
+                <tr>
+                    <td>restriccions</td>
+                    <td>Restriccions de l'escola (prohibicions, per exemple per nidificació d'aus)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <div class="table-title">3. Taula: Sectors</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Camp</th>
+                    <th>Descripció</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id_sector (PK)</td>
+                    <td>Identificador únic del sector</td>
+                </tr>
+                <tr>
+                    <td>nom</td>
+                    <td>Nom del sector</td>
+                </tr>
+                <tr>
+                    <td>latitud</td>
+                    <td>Coordinades geogràfiques (latitud)</td>
+                </tr>
+                <tr>
+                    <td>longitud</td>
+                    <td>Coordinades geogràfiques (longitud)</td>
+                </tr>
+                <tr>
+                    <td>aproximació</td>
+                    <td>Descripció de com arribar al sector</td>
+                </tr>
+                <tr>
+                    <td>popularitat</td>
+                    <td>Popularitat del sector (baixa, mitjana, alta)</td>
+                </tr>
+                <tr>
+                    <td>restriccions</td>
+                    <td>Restriccions del sector (per exemple, prohibicions per nidificació d'aus)</td>
+                </tr>
+                <tr>
+                    <td>id_escola (FK)</td>
+                    <td>Escola a la qual pertany el sector (FK a Escoles)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <div class="table-title">4. Taula: Vies</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Camp</th>
+                    <th>Descripció</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id_via (PK)</td>
+                    <td>Identificador únic de la via</td>
+                </tr>
+                <tr>
+                    <td>nom</td>
+                    <td>Nom de la via</td>
+                </tr>
+                <tr>
+                    <td>tipus_via</td>
+                    <td>Tipus de via (esportiva, clàssica, gel)</td>
+                </tr>
+                <tr>
+                    <td>estat</td>
+                    <td>Estat de la via (apte, construcció, tancada)</td>
+                </tr>
+                <tr>
+                    <td>orientació</td>
+                    <td>Orientació de la via (N, NE, NO, SE, SO, E, O, S)</td>
+                </tr>
+                <tr>
+                    <td>grau_dificultat</td>
+                    <td>Grau de dificultat de la via</td>
+                </tr>
+                <tr>
+                    <td>llargada</td>
+                    <td>Longitud de la via (en metres)</td>
+                </tr>
+                <tr>
+                    <td>ancoratges</td>
+                    <td>Tipus d'ancoratges de la via (spits, parabolts, químics, friends, tascons, pitons, etc.)</td>
+                </tr>
+                <tr>
+                    <td>latitud</td>
+                    <td>Coordinades geogràfiques (latitud)</td>
+                </tr>
+                <tr>
+                    <td>longitud</td>
+                    <td>Coordinades geogràfiques (longitud)</td>
+                </tr>
+                <tr>
+                    <td>ciutat</td>
+                    <td>Ciutat de la via</td>
+                </tr>
+                <tr>
+                    <td>població</td>
+                    <td>Població de la via</td>
+                </tr>
+                <tr>
+                    <td>regió</td>
+                    <td>Regió de la via</td>
+                </tr>
+                <tr>
+                    <td>tipus_roca</td>
+                    <td>Tipus de roca (conglomerat, granit, calcària, arenisca, altres)</td>
+                </tr>
+                <tr>
+                    <td>id_sector (FK)</td>
+                    <td>Sector a on es troba la via (FK a Sectors)</td>
+                </tr>
+                <tr>
+                    <td>creada_per (FK)</td>
+                    <td>Escalador que va crear la via (FK a Escaladors)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="note">
+        <p><strong>Nota:</strong> Els camps amb "(PK)" són clau primària i els camps amb "(FK)" són clau forana que fa referència a una altra taula.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

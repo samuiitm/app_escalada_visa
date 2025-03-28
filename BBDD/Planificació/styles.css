@@ -1,0 +1,84 @@
+/* ---------- FIRST SETTINGS ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: rgb(0,0,0);
+    background: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgb(24, 4, 43) 31%, rgba(10,1,20,1) 51%, rgba(43,2,81,1) 53%, rgb(44, 0, 69) 56%, rgb(34, 0, 42) 72%, rgba(0,0,0,1) 84%, rgba(31,0,33,1) 100%);
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+}
+
+header {    
+    background-color: #00000045;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 200;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+.container {
+    max-width: 1200px;
+
+    margin: 20px auto;
+    padding: 0px 20 20 20;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #ffffff27;
+    color: white;
+}
+.table-container {
+    margin-bottom: 40px;
+}
+.relation {
+    font-weight: bold;
+}
+.table-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.relacions {
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.relacions ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.relacions li {
+    margin: 5px 0;
+}
+.note {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #ffffffaa;
+}
