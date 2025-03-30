@@ -30,36 +30,36 @@
                 </tr>
                 <tr>
                     <td>nom</td>
-                    <td>Nom de l'escalador</td>
+                    <td>Nom complet de l'escalador</td>
                 </tr>
                 <tr>
                     <td>àlies</td>
-                    <td>Àlies de l'escalador</td>
+                    <td>Nom alternatiu o sobrenom utilitzat</td>
                 </tr>
                 <tr>
                     <td>edat</td>
-                    <td>Edat de l'escalador</td>
+                    <td>Edat actual de l'escalador</td>
                 </tr>
                 <tr>
                     <td>nivell_màxim</td>
-                    <td>Nivell màxim assolit per l'escalador (de 4 a 9c+)</td>
+                    <td>Grau més alt assolit en una via</td>
                 </tr>
                 <tr>
-                    <td>via_nivell_max</td>
-                    <td>Via en què ha assolit el seu nivell màxim (FK a Vies)</td>
+                    <td>via_nivell_max (FK)</td>
+                    <td>Via on s’ha assolit el nivell màxim (FK a Vies)</td>
                 </tr>
                 <tr>
                     <td>estil_preferit</td>
-                    <td>Estil preferit d'escalada (esportiva, clàssica, gel)</td>
+                    <td>Tipus d’escalada preferida (esportiva, clàssica, gel)</td>
                 </tr>
                 <tr>
                     <td>fita</td>
-                    <td>Fita més rellevant aconseguida per l'escalador</td>
+                    <td>Fita personal més destacada</td>
                 </tr>
             </tbody>
         </table>
     </div>
-
+    
     <div class="table-container">
         <div class="table-title">2. Taula: Escoles</div>
         <table>
@@ -72,48 +72,47 @@
             <tbody>
                 <tr>
                     <td>id_escola (PK)</td>
-                    <td>Identificador únic de l'escola</td>
+                    <td>Identificador únic de l’escola d’escalada</td>
                 </tr>
                 <tr>
                     <td>nom</td>
-                    <td>Nom de l'escola</td>
-                </tr>
+                    <td>Nom de l’escola</td></tr>
                 <tr>
                     <td>ciutat</td>
-                    <td>Ciutat de l'escola</td>
+                    <td>Ciutat on es troba l’escola</td>
                 </tr>
                 <tr>
                     <td>població</td>
-                    <td>Població de l'escola</td>
+                    <td>Població concreta de l’escola</td>
                 </tr>
                 <tr>
                     <td>regió</td>
-                    <td>Regió de l'escola</td>
+                    <td>Regió geogràfica (comarca, província, etc.)</td>
                 </tr>
                 <tr>
                     <td>latitud</td>
-                    <td>Coordinades geogràfiques (latitud)</td>
+                    <td>Coordenada geogràfica (latitud)</td>
                 </tr>
                 <tr>
                     <td>longitud</td>
-                    <td>Coordinades geogràfiques (longitud)</td>
+                    <td>Coordenada geogràfica (longitud)</td>
                 </tr>
                 <tr>
                     <td>aproximació</td>
-                    <td>Descripció de com arribar a l'escola</td>
+                    <td>Com arribar a l’escola</td>
                 </tr>
                 <tr>
                     <td>popularitat</td>
-                    <td>Popularitat de l'escola (baixa, mitjana, alta)</td>
+                    <td>Nivell de freqüentació (baixa, mitjana, alta)</td>
                 </tr>
                 <tr>
                     <td>restriccions</td>
-                    <td>Restriccions de l'escola (prohibicions, per exemple per nidificació d'aus)</td>
+                    <td>Limitacions d’accés (p. ex., per nidificació)</td>
                 </tr>
             </tbody>
         </table>
     </div>
-
+    
     <div class="table-container">
         <div class="table-title">3. Taula: Sectors</div>
         <table>
@@ -134,32 +133,32 @@
                 </tr>
                 <tr>
                     <td>latitud</td>
-                    <td>Coordinades geogràfiques (latitud)</td>
+                    <td>Coordenada geogràfica (latitud)</td
                 </tr>
                 <tr>
                     <td>longitud</td>
-                    <td>Coordinades geogràfiques (longitud)</td>
+                    <td>Coordenada geogràfica (longitud)</td>
                 </tr>
                 <tr>
                     <td>aproximació</td>
-                    <td>Descripció de com arribar al sector</td>
+                    <td>Indicacions d’accés al sector</td>
                 </tr>
                 <tr>
                     <td>popularitat</td>
-                    <td>Popularitat del sector (baixa, mitjana, alta)</td>
+                    <td>Freqüentació del sector (baixa, mitjana, alta)</td>
                 </tr>
                 <tr>
                     <td>restriccions</td>
-                    <td>Restriccions del sector (per exemple, prohibicions per nidificació d'aus)</td>
+                    <td>Limitacions específiques d’accés</td>
                 </tr>
                 <tr>
                     <td>id_escola (FK)</td>
-                    <td>Escola a la qual pertany el sector (FK a Escoles)</td>
+                    <td>Escola a la qual pertany el sector</td>
                 </tr>
             </tbody>
         </table>
     </div>
-
+    
     <div class="table-container">
         <div class="table-title">4. Taula: Vies</div>
         <table>
@@ -195,10 +194,6 @@
                     <td>Longitud de la via (en metres)</td>
                 </tr>
                 <tr>
-                    <td>ancoratges</td>
-                    <td>Tipus d'ancoratges de la via (spits, parabolts, químics, friends, tascons, pitons, etc.)</td>
-                </tr>
-                <tr>
                     <td>latitud</td>
                     <td>Coordinades geogràfiques (latitud)</td>
                 </tr>
@@ -219,8 +214,12 @@
                     <td>Regió de la via</td>
                 </tr>
                 <tr>
-                    <td>tipus_roca</td>
-                    <td>Tipus de roca (conglomerat, granit, calcària, arenisca, altres)</td>
+                    <td>id_ancoratge (FK)</td>
+                    <td>Tipus d'ancoratges de la via (FK a Ancoratges)</td>
+                </tr>
+                <tr>
+                    <td>tipus_roca (FK)</td>
+                    <td>Tipus de roca de la via (FK a Tipus_Roca)</td>
                 </tr>
                 <tr>
                     <td>id_sector (FK)</td>
@@ -237,39 +236,64 @@
             </tbody>
         </table>
     </div>
-
+    
+    
     <div class="table-container">
-        <div class="table-title">4. Taula: Dificultat</div>
+        <div class="table-title">5. Taula: Dificultat</div>
         <table>
             <thead>
-                <tr>
-                    <th>Camp</th>
-                    <th>Descripció</th>
-                </tr>
+                <tr><th>Camp</th><th>Descripció</th></tr>
             </thead>
             <tbody>
                 <tr>
                     <td>id_dificultat (PK)</td>
-                    <td>Identificador únic de la dificultat</td>
+                    <td>Identificador de dificultat</td>
                 </tr>
                 <tr>
                     <td>grau_dificultat_esportiva</td>
-                    <td>Grau de dificultat de la via esportiva</td>
+                    <td>Escala per vies esportives</td>
                 </tr>
                 <tr>
                     <td>grau_dificultat_classica</td>
-                    <td>Grau de dificultat de la via clàssica</td>
+                    <td>Escala per vies clàssiques</td>
                 </tr>
                 <tr>
                     <td>grau_dificultat_gel</td>
-                    <td>Grau de dificultat de la via de gel</td>
-                </tr>   
+                    <td>Escala per vies de gel</td>
+                </tr>
             </tbody>
         </table>
     </div>
     
     <div class="table-container">
-        <div class="table-title">4. Taula: Dificultat</div>
+        <div class="table-title">6. Taula: Ancoratges</div>
+        <table>
+            <thead>
+                <tr><th>Camp</th><th>Descripció</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id_ancoratge (PK)</td>
+                    <td>Identificador únic de l'ancoratge</td>
+                </tr>
+                <tr>
+                    <td>ancoratge_esportiva</td>
+                    <td>Tipus d'ancoratge per vies esportives (p.e. spits, parabolts)</td>
+                </tr>
+                <tr>
+                    <td>ancoratge_classica</td>
+                    <td>Tipus d'ancoratge per vies clàssiques (p.e. friends, tascons, pitons)</td>
+                </tr>
+                <tr>
+                    <td>ancoratge_gel</td>
+                    <td>Tipus d'ancoratge per vies de gel (p.e. crampons, piolets)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="table-container">
+        <div class="table-title">7. Taula: Tipus de Roca</div>
         <table>
             <thead>
                 <tr>
@@ -279,20 +303,49 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>id_dificultat (PK)</td>
-                    <td>Identificador únic de la dificultat</td>
+                    <td>id_tipus_roca (PK)</td>
+                    <td>Identificador únic del tipus de roca</td>
                 </tr>
                 <tr>
-                    <td>grau_dificultat_esportiva</td>
-                    <td>Grau de dificultat de la via esportiva</td>
+                    <td>roca_esportiva</td>
+                    <td>Tipus de roca per vies esportives (p.e. granit, calcària)</td>
                 </tr>
                 <tr>
-                    <td>grau_dificultat_classica</td>
-                    <td>Grau de dificultat de la via clàssica</td>
+                    <td>roca_classica</td>
+                    <td>Tipus de roca per vies clàssiques (p.e. conglomerat, arenisca)</td>
                 </tr>
                 <tr>
-                    <td>grau_dificultat_gel</td>
-                    <td>Grau de dificultat de la via de gel</td>
+                    <td>roca_gel</td><td>Tipus de roca per vies de gel (p.e. gel compacte, neu)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="table-container">
+        <div class="table-title">8. Taula: Material</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Camp</th>
+                    <th>Descripció</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id_material (PK)</td>
+                    <td>Identificador únic del material</td>
+                </tr>
+                <tr>
+                    <td>material_esportiva</td>
+                    <td>Material per vies esportives (p.e. cordes, cintes exprés)</td>
+                </tr>
+                <tr>
+                    <td>material_classica</td>
+                    <td>Material per vies clàssiques (p.e. friends, tascons, bagues)</td>
+                </tr>
+                <tr>
+                    <td>material_gel</td>
+                    <td>Material per vies de gel (p.e. crampons, piolets, cordes per gel)</td>
                 </tr>
             </tbody>
         </table>
