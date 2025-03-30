@@ -191,10 +191,6 @@
                     <td>Orientació de la via (N, NE, NO, SE, SO, E, O, S)</td>
                 </tr>
                 <tr>
-                    <td>grau_dificultat</td>
-                    <td>Grau de dificultat de la via</td>
-                </tr>
-                <tr>
                     <td>llargada</td>
                     <td>Longitud de la via (en metres)</td>
                 </tr>
@@ -231,6 +227,10 @@
                     <td>Sector a on es troba la via (FK a Sectors)</td>
                 </tr>
                 <tr>
+                    <td>id_dificultat (FK)</td>
+                    <td>Dificultat de la via (FK a Dificultat)</td>
+                </tr>
+                <tr>
                     <td>creada_per (FK)</td>
                     <td>Escalador que va crear la via (FK a Escaladors)</td>
                 </tr>
@@ -238,8 +238,174 @@
         </table>
     </div>
 
+    <div class="table-container">
+        <div class="table-title">4. Taula: Dificultat</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Camp</th>
+                    <th>Descripció</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id_dificultat (PK)</td>
+                    <td>Identificador únic de la dificultat</td>
+                </tr>
+                <tr>
+                    <td>grau_dificultat_esportiva</td>
+                    <td>Grau de dificultat de la via esportiva</td>
+                </tr>
+                <tr>
+                    <td>grau_dificultat_classica</td>
+                    <td>Grau de dificultat de la via clàssica</td>
+                </tr>
+                <tr>
+                    <td>grau_dificultat_gel</td>
+                    <td>Grau de dificultat de la via de gel</td>
+                </tr>   
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="table-container">
+        <div class="table-title">4. Taula: Dificultat</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Camp</th>
+                    <th>Descripció</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>id_dificultat (PK)</td>
+                    <td>Identificador únic de la dificultat</td>
+                </tr>
+                <tr>
+                    <td>grau_dificultat_esportiva</td>
+                    <td>Grau de dificultat de la via esportiva</td>
+                </tr>
+                <tr>
+                    <td>grau_dificultat_classica</td>
+                    <td>Grau de dificultat de la via clàssica</td>
+                </tr>
+                <tr>
+                    <td>grau_dificultat_gel</td>
+                    <td>Grau de dificultat de la via de gel</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <div class="table-title">Comparació de Vies Esportives, Clàssiques i de Gel</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Atribut</th>
+                    <th>Vía Esportiva</th>
+                    <th>Vía Clàssica</th>
+                    <th>Vía Gel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Llargada</td>
+                    <td>De 5 a 30 metres</td>
+                    <td>Generalment més llarga (més de 50 metres)</td>
+                    <td>De 15 a 30 metres</td>
+                </tr>
+                <tr>
+                    <td>Grau de dificultat</td>
+                    <td>[4, 4+, 5, 5+, 6a, 6a+, 6b, 6b+, 6c, 6c+, 7a, 7a+, 7b, 7b+, 7c, 7c+, 8a, 8a+, 8b, 8b+, 8c, 8c+, 9a, 9a+, 9b, 9b+, 9c, 9c+]</td>
+                    <td>[4, 4+, 5, 5+, 6a, 6a+, 6b, 6b+, 6c, 6c+, 7a, 7a+, 7b, 7b+, 7c, 7c+, 8a, 8a+, 8b]</td>
+                    <td>[4, 4+, 5, 5+, 6a, 6a+, 6b, 6b+, 6c, 6c+, 7a, 7a+, 7b, 7b+, 7c, 7c+, 8a, 8a+, 8b]</td>
+                </tr>
+                <tr>
+                    <td>Orientació</td>
+                    <td>N, NE, NO, SE, SO, E, O, S</td>
+                    <td>N, NE, NO, SE, SO, E, O, S</td>
+                    <td>N, NE, NO, SE, SO, E, O, S</td>
+                </tr>
+                <tr>
+                    <td>Estat</td>
+                    <td>Apte, en construcció, tancada</td>
+                    <td>Apte, en construcció, tancada</td>
+                    <td>Apte, en construcció, tancada</td>
+                </tr>
+                <tr>
+                    <td>Lloc</td>
+                    <td>Ciutat, Població, Regió</td>
+                    <td>Ciutat, Població, Regió</td>
+                    <td>Ciutat, Població, Regió</td>
+                </tr>
+                <tr>
+                    <td>Escola</td>
+                    <td>Nom de l'escola</td>
+                    <td>Nom de l'escola</td>
+                    <td>Nom de l'escola</td>
+                </tr>
+                <tr>
+                    <td>Sector</td>
+                    <td>Nom del sector</td>
+                    <td>Nom del sector</td>
+                    <td>Nom del sector</td>
+                </tr>
+                <tr>
+                    <td>Coordenades</td>
+                    <td>Latitud, Longitud</td>
+                    <td>Latitud, Longitud</td>
+                    <td>Latitud, Longitud</td>
+                </tr>
+                <tr>
+                    <td>Ancoratges</td>
+                    <td>Spits, Parabolts, Químics</td>
+                    <td>Friends, Tascons, Bagues, Pitons, Tricams, BigBros</td>
+                    <td>Friends, Tascons, Bagues, Pitons, Tricams, BigBros</td>
+                </tr>
+                <tr>
+                    <td>Tipus de roca</td>
+                    <td>Conglomerat, Granit, Calcària, Arenisca, Altres</td>
+                    <td>Conglomerat, Granit, Calcària, Arenisca, Altres</td>
+                    <td>Gel, Roca (a vegades també roca per les parets d'alta muntanya)</td>
+                </tr>
+                <tr>
+                    <td>Creada per</td>
+                    <td>Nom de l'escalador que va crear la via (ha d'aparèixer a la BDD o donar-se d'alta)</td>
+                    <td>Nom de l'escalador que va crear la via (ha d'aparèixer a la BDD o donar-se d'alta)</td>
+                    <td>Nom de l'escalador que va crear la via (ha d'aparèixer a la BDD o donar-se d'alta)</td>
+                </tr>
+                <tr>
+                    <td>Material necessari</td>
+                    <td>Corda, cintes exprés, ancoratges fixos (spits, parabolts, químics)</td>
+                    <td>Material per protegir (friends, tascons, pitons), corda, bagues, Tricams, BigBros</td>
+                    <td>Material d'escalada en gel (crampons, carabiners, tendals, galls, martells, corda)</td>
+                </tr>
+                <tr>
+                    <td>Dificultat en escalada</td>
+                    <td>Normalment, més curta i amb ancoratges fets, més accessible per principiants</td>
+                    <td>Més llarga i amb protecció manual, requereix més experiència i coneixement</td>
+                    <td>Més tècnica i perillosa, depèn de les condicions climàtiques (gel dur, gel tou, etc.)</td>
+                </tr>
+                <tr>
+                    <td>Requereix experiència</td>
+                    <td>Requereix menys experiència comparat amb la via clàssica</td>
+                    <td>Requereix més experiència i coneixement en la protecció manual</td>
+                    <td>Requereix molta experiència i coneixement específic del gel i les condicions climàtiques</td>
+                </tr>
+                <tr>
+                    <td>Llargada de les vies</td>
+                    <td>Habitualment, entre 5 i 30 metres</td>
+                    <td>Més de 50 metres (normalment té diversos llargs)</td>
+                    <td>Pot ser de 15 a 30 metres, però en casos més difícils poden ser més llargues</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="note">
-        <p><strong>Nota:</strong> Els camps amb "(PK)" són clau primària i els camps amb "(FK)" són clau forana que fa referència a una altra taula.</p>
+        <p><strong>Nota:</strong> Els camps amb "(PK)" són clau primària i els camps amb "(FK)" són clau forana que fa referència a una altra taula.<br>
+        En el cas de la dificultat, posem 3 camps amb la dificultat de cada tipus de via i en cada tipus, quan s'arriba a la màxima dificultat possible, els registres sobrant passen a ser null</p>
     </div>
 
 </div>
