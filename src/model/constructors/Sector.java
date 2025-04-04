@@ -1,4 +1,4 @@
-package model;
+package model.constructors;
 
 public class Sector extends Entitat {
     String nom;

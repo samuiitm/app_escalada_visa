@@ -1,9 +1,11 @@
-package model;
+package model.constructors;
 
-public class Material extends Entitat {
+import model.Entitat;
+
+public class Dificultat extends Entitat {
     String nom;
 
-    public Material(int id, String nom) {
+    public Dificultat(int id, String nom) {
         super(id);
         this.nom = nom;
     }
@@ -19,7 +21,7 @@ public class Material extends Entitat {
 
     @Override
     public String toString() {
-        return "Material{" +
+        return "Dificultat{" +
                 "nom='" + nom + '\'' +
                 '}';
     }

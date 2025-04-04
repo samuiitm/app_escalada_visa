@@ -1,4 +1,4 @@
-package model;
+package model.constructors;
 
 public abstract class Entitat {
     protected int id;

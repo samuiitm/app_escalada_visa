@@ -1,4 +1,4 @@
-package model;
+package model.constructors;
 
 public class Localitzacio extends Entitat {
     String ciutat;

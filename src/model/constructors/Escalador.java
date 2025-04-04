@@ -1,4 +1,4 @@
-package model;
+package model.constructors;
 
 public class Escalador extends Entitat {
     String nom;
