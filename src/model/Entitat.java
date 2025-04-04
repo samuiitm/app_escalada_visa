@@ -1,9 +1,9 @@
 package model;
 
-public abstract class Entidad {
+public abstract class Entitat {
     protected int id;
 
-    public Entidad(int id) {
+    public Entitat(int id) {
         this.id = id;
     }
 
@@ -15,4 +15,3 @@ public abstract class Entidad {
         this.id = id;
     }
 }
-
