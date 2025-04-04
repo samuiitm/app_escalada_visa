@@ -38,6 +38,7 @@ CREATE TABLE escoles (
     CONSTRAINT pk_escoles PRIMARY KEY (id_escola),
     CONSTRAINT fk_escoles_poblacions FOREIGN KEY (id_localitzacio)
 		REFERENCES localitzacions(id_localitzacio)
+    CONSTRAINT uk_escoles_nom UNIQUE (nom)
 );
 
 CREATE TABLE sectors (
