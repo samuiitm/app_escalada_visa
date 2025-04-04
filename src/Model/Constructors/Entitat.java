@@ -1,4 +1,4 @@
-package model.constructors;
+package Model.Constructors;
 
 public abstract class Entitat {
     protected int id;

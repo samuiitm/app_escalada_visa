@@ -1,4 +1,4 @@
-package model.interfaces;
+package Model.Interfaces;
 
 import java.util.List;
 

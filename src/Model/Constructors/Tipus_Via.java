@@ -1,9 +1,9 @@
-package model.constructors;
+package Model.Constructors;
 
-public class Tipus_Roca extends Entitat {
+public class Tipus_Via extends Entitat {
     String nom;
 
-    public Tipus_Roca(int id, String nom) {
+    public Tipus_Via(int id, String nom) {
         super(id);
         this.nom = nom;
     }
@@ -19,7 +19,7 @@ public class Tipus_Roca extends Entitat {
 
     @Override
     public String toString() {
-        return "Tipus_Roca{" +
+        return "Tipus_Via{" +
                 "nom='" + nom + '\'' +
                 '}';
     }

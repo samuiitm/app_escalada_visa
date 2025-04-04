@@ -1,4 +1,4 @@
-package model.constructors;
+package Model.Constructors;
 
 public class Escola extends Entitat {
     String nom;

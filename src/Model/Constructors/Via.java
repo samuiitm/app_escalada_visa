@@ -1,4 +1,4 @@
-package model.constructors;
+package Model.Constructors;
 
 public class Via extends Entitat {
     String nom;

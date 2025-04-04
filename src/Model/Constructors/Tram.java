@@ -1,4 +1,4 @@
-package model.constructors;
+package Model.Constructors;
 
 public class Tram extends Entitat {
     private String nom;
