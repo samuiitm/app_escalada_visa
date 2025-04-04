@@ -1,7 +1,5 @@
 package model.constructors;
 
-import model.Entitat;
-
 public class Ancoratge extends Entitat {
     String nom;
 

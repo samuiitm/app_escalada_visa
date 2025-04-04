@@ -1,7 +1,5 @@
 package model.constructors;
 
-import model.Entitat;
-
 public class Dificultat extends Entitat {
     String nom;
 
