@@ -1,4 +1,4 @@
-package Controlador;
+import Controlador.MenuCrear;
 import Vista.Vista;
 
 import java.util.Scanner;
@@ -23,7 +23,7 @@ public class Main {
             switch (opcio) {
                 // CAS 1: CREAR
                 case 1:
-                    crearObjecte();
+                    MenuCrear.menuCrear();
                     break;
 
                 // CAS 2: MODIFICAR
@@ -52,9 +52,5 @@ public class Main {
                     break;
             }
         } while (opcio != 0);
-    }
-
-    public static void crearObjecte () {
-        Vista.mostrarMenuCrear();
     }
 }
