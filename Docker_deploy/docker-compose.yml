@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: P@ssw0rd!
+      MYSQL_DATABASE: bbdd_visa
+      MYSQL_USER: visa
+      MYSQL_PASSWORD: P@ssw0rd
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      # si se usa persistencia de datos descomentar y definir el volumen:
+      # - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+# descomentar para persistencia de datos...
+# volumes:
+#   mysql_data:
