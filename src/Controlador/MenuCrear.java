@@ -44,7 +44,6 @@ public class MenuCrear {
                     Vista.mostrarMissatge("L'opció introduida no es vàlida. Si us plau, introdueix una opció del menú");
                     break;
             }
-
         } while (opcio != 0);
     }
 }

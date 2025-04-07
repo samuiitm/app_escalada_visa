@@ -10,12 +10,17 @@ services:
       MYSQL_USER: visa
       MYSQL_PASSWORD: P@ssw0rd
     volumes:
-      - .Docker/init.sql:/docker-entrypoint-initdb.d/init.sql
-      # si se usa persistencia de datos descomentar y definir el volumen:
-      # - mysql_data:/var/lib/mysql
+      - ./Docker/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "3306:3306"
 
-# descomentar para persistencia de datos...
-# volumes:
-#   mysql_data:
+  # Agregar tu aplicación Java (esto es un ejemplo)
+  app_escalada_visa:
+    build: .
+    container_name: app_escalada_visa
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
