@@ -1,6 +1,7 @@
 package Model.Constructors;
 
-public class Via extends Entitat {
+public class Via {
+    int idVia;
     String nom;
     int id_tipus_via;
     String estat;
@@ -11,8 +12,21 @@ public class Via extends Entitat {
     int id_material;
     int creador;
 
+    public Via(String nom, int id_tipus_via, String estat, String orientacio, int id_ancoratge, int id_tipus_roca, int id_sector, int id_material, int creador) {
+        this.idVia = 0;
+        this.nom = nom;
+        this.id_tipus_via = id_tipus_via;
+        this.estat = estat;
+        this.orientacio = orientacio;
+        this.id_ancoratge = id_ancoratge;
+        this.id_tipus_roca = id_tipus_roca;
+        this.id_sector = id_sector;
+        this.id_material = id_material;
+        this.creador = creador;
+    }
+
     public Via(int id, String nom, int id_tipus_via, String estat, String orientacio, int id_ancoratge, int id_tipus_roca, int id_sector, int id_material, int creador) {
-        super(id);
+        this.idVia = id;
         this.nom = nom;
         this.id_tipus_via = id_tipus_via;
         this.estat = estat;
@@ -25,6 +39,12 @@ public class Via extends Entitat {
     }
 
     //Getters i Setters
+    public int getIdVia() {
+        return idVia;
+    }
+    public void setIdVia(int idVia) {
+        this.idVia = idVia;
+    }
     public String getNom() {
         return nom;
     }

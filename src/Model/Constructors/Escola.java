@@ -1,15 +1,26 @@
 package Model.Constructors;
 
-public class Escola extends Entitat {
+public class Escola {
+    int idEscola;
     String nom;
-    int id_localitzacio;
     String aproximacio;
+    int id_localitzacio;
     int numero_vies;
     String popularitat;
     String restriccions;
 
+    public Escola(String nom, int id_localitzacio, String aproximacio, int numero_vies, String popularitat, String restriccions) {
+        this.idEscola = 0;
+        this.nom = nom;
+        this.id_localitzacio = id_localitzacio;
+        this.aproximacio = aproximacio;
+        this.numero_vies = numero_vies;
+        this.popularitat = popularitat;
+        this.restriccions = restriccions;
+    }
+
     public Escola(int id, String nom, int id_localitzacio, String aproximacio, int numero_vies, String popularitat, String restriccions) {
-        super(id);
+        this.idEscola = id;
         this.nom = nom;
         this.id_localitzacio = id_localitzacio;
         this.aproximacio = aproximacio;
@@ -19,6 +30,12 @@ public class Escola extends Entitat {
     }
 
     //Getters i Setters
+    public int getIdEscola() {
+        return idEscola;
+    }
+    public void setIdEscola(int idEscola) {
+        this.idEscola = idEscola;
+    }
     public String getNom() {
         return nom;
     }
