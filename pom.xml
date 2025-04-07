@@ -26,20 +26,28 @@
 
     <build>
         <plugins>
-            <!-- Plugin Docker para Maven (si deseas interactuar con Docker desde Maven) -->
+            <!-- Usando dockerfile-maven-plugin de Spotify -->
             <plugin>
-                <groupId>com.docker</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version> <!-- Cambia la versión si es necesario -->
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.0</version> <!-- Cambié a una versión compatible -->
                 <executions>
                     <execution>
                         <goals>
                             <goal>build</goal>
-                            <goal>push</goal>
+                            <goal>push</goal> <!-- Este es opcional si no necesitas subirlo -->
                         </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+    </repositories>
+
 </project>
