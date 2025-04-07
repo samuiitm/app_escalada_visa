@@ -1,10 +1,9 @@
 package Model.Constructors;
 
-public class Material extends Entitat {
+public class Material {
     String nom;
 
-    public Material(int id, String nom) {
-        super(id);
+    public Material(String nom) {
         this.nom = nom;
     }
 

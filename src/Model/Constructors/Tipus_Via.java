@@ -1,10 +1,9 @@
 package Model.Constructors;
 
-public class Tipus_Via extends Entitat {
+public class Tipus_Via {
     String nom;
 
-    public Tipus_Via(int id, String nom) {
-        super(id);
+    public Tipus_Via(String nom) {
         this.nom = nom;
     }
 

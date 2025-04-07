@@ -1,6 +1,6 @@
 package Model.Constructors;
 
-public class Via extends Entitat {
+public class Via {
     String nom;
     int id_tipus_via;
     String estat;
@@ -11,8 +11,7 @@ public class Via extends Entitat {
     int id_material;
     int creador;
 
-    public Via(int id, String nom, int id_tipus_via, String estat, String orientacio, int id_ancoratge, int id_tipus_roca, int id_sector, int id_material, int creador) {
-        super(id);
+    public Via(String nom, int id_tipus_via, String estat, String orientacio, int id_ancoratge, int id_tipus_roca, int id_sector, int id_material, int creador) {
         this.nom = nom;
         this.id_tipus_via = id_tipus_via;
         this.estat = estat;

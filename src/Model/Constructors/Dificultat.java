@@ -1,10 +1,9 @@
 package Model.Constructors;
 
-public class Dificultat extends Entitat {
+public class Dificultat{
     String nom;
 
-    public Dificultat(int id, String nom) {
-        super(id);
+    public Dificultat(String nom) {
         this.nom = nom;
     }
 

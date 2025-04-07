@@ -1,12 +1,11 @@
 package Model.Constructors;
 
-public class Localitzacio extends Entitat {
+public class Localitzacio {
     String ciutat;
     String regio;
     String codipostal;
 
-    public Localitzacio(int id, String ciutat, String regio, String codipostal) {
-        super(id);
+    public Localitzacio(String ciutat, String regio, String codipostal) {
         this.ciutat = ciutat;
         this.regio = regio;
         this.codipostal = codipostal;

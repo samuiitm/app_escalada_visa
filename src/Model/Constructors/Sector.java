@@ -1,6 +1,6 @@
 package Model.Constructors;
 
-public class Sector extends Entitat {
+public class Sector {
     String nom;
     String coordenades;
     String aproximacio;
@@ -9,8 +9,7 @@ public class Sector extends Entitat {
     String restriccions;
     int id_escola;
 
-    public Sector(int id, String nom, String coordenades, String aproximacio, int numero_vies, String popularitat, String restriccions, int id_escola) {
-        super(id);
+    public Sector(String nom, String coordenades, String aproximacio, int numero_vies, String popularitat, String restriccions, int id_escola) {
         this.nom = nom;
         this.coordenades = coordenades;
         this.aproximacio = aproximacio;

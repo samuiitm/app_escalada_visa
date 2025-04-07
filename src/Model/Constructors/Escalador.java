@@ -1,6 +1,6 @@
 package Model.Constructors;
 
-public class Escalador extends Entitat {
+public class Escalador {
     String nom;
     String alies;
     int edat;
@@ -8,8 +8,7 @@ public class Escalador extends Entitat {
     int via_nivell_maxim;
     String estil_preferit;
 
-    public Escalador(int id, String nom, String alies, int edat, String nivell_maxim, int via_nivell_maxim, String estil_preferit) {
-        super(id);
+    public Escalador(String nom, String alies, int edat, String nivell_maxim, int via_nivell_maxim, String estil_preferit) {
         this.nom = nom;
         this.alies = alies;
         this.edat = edat;

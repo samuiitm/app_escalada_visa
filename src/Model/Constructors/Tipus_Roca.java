@@ -1,10 +1,9 @@
 package Model.Constructors;
 
-public class Tipus_Roca extends Entitat {
+public class Tipus_Roca {
     String nom;
 
-    public Tipus_Roca(int id, String nom) {
-        super(id);
+    public Tipus_Roca(String nom) {
         this.nom = nom;
     }
 

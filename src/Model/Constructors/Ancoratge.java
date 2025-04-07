@@ -1,10 +1,9 @@
 package Model.Constructors;
 
-public class Ancoratge extends Entitat {
+public class Ancoratge{
     String nom;
 
-    public Ancoratge(int id, String nom) {
-        super(id);
+    public Ancoratge(String nom) {
         this.nom = nom;
     }
 

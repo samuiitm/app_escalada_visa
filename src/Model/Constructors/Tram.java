@@ -1,12 +1,11 @@
 package Model.Constructors;
 
-public class Tram extends Entitat {
+public class Tram {
     private String nom;
     private int idDificultat;
     private int llargada;
 
-    public Tram(int id, String nom,int idDificultat, int llargada) {
-        super(id);
+    public Tram(String nom,int idDificultat, int llargada) {
         this.nom = nom;
         this.idDificultat = idDificultat;
     }
