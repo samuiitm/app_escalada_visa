@@ -3,6 +3,9 @@ package Controlador;
 import java.util.Scanner;
 
 import Controlador.CrearObjectes.CrearEscalador;
+import Controlador.CrearObjectes.CrearEscola;
+import Controlador.CrearObjectes.CrearSector;
+import Controlador.CrearObjectes.CrearVia;
 import Vista.*;
 
 public class MenuCrear {
@@ -23,15 +26,22 @@ public class MenuCrear {
 
             switch (opcio) {
                 case 1:
-                    CrearEscalador.crearEscalador();
+                    CrearEscola.crearEscola();
                     break;
                 case 2:
+                    CrearSector.crearSector();
                     break;
                 case 3:
+                    CrearVia.crearVia();
+                    break;
+                case 4:
+                    CrearEscalador.crearEscalador();
                     break;
                 case 0:
+                    Vista.mostrarMissatge("Tornant al menú principal...\n");
                     break;
                 default:
+                    Vista.mostrarMissatge("L'opció introduida no es vàlida. Si us plau, introdueix una opció del menú");
                     break;
             }
 

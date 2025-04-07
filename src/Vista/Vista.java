@@ -22,16 +22,10 @@ public class Vista {
         System.out.println("-----------------------------------\n" +
                            "-------------- CREAR --------------\n" +
                            "-----------------------------------\n" +
-                           "1.\tLocalitzacio\n" +
-                           "2.\tEscola\n" +
-                           "3.\tSector\n" +
+                           "1.\tEscola\n" +
+                           "2.\tSector\n" +
+                           "3.\tVia\n" +
                            "4.\tEscalador\n" +
-                           "5.\tTipus_Via\n" +
-                           "6.\tVia\n" +
-                           "7.\tAncoratge\n" +
-                           "8.\tTipus_Roca\n" +
-                           "9.\tMaterial\n" +
-                           "10.\tTram\n" +
-                           "11.\tDificultat\n");
+                           "0.\tTornar\n");
     }
 }
