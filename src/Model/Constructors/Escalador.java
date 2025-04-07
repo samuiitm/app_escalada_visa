@@ -1,6 +1,7 @@
 package Model.Constructors;
 
-public class Escalador extends Entitat {
+public class Escalador {
+    int idEscalador;
     String nom;
     String alies;
     int edat;
@@ -8,8 +9,18 @@ public class Escalador extends Entitat {
     int via_nivell_maxim;
     String estil_preferit;
 
+    public Escalador(String nom, String alies, int edat, String nivell_maxim, int via_nivell_maxim, String estil_preferit) {
+        this.idEscalador = 0;
+        this.nom = nom;
+        this.alies = alies;
+        this.edat = edat;
+        this.nivell_maxim = nivell_maxim;
+        this.via_nivell_maxim = via_nivell_maxim;
+        this.estil_preferit = estil_preferit;
+    }
+
     public Escalador(int id, String nom, String alies, int edat, String nivell_maxim, int via_nivell_maxim, String estil_preferit) {
-        super(id);
+        this.idEscalador = id;
         this.nom = nom;
         this.alies = alies;
         this.edat = edat;
@@ -19,6 +30,12 @@ public class Escalador extends Entitat {
     }
 
     // Getter y Setters
+    public int getIdEscalador() {
+        return idEscalador;
+    }
+    public void setIdEscalador(int idEscalador) {
+        this.idEscalador = idEscalador;
+    }
     public String getNom() {
         return nom;
     }
