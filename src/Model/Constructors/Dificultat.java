@@ -1,26 +1,14 @@
 package Model.Constructors;
 
-public class Dificultat {
-    int idDificultat;
+public class Dificultat extends Entitat {
     String nom;
 
-    public Dificultat(String nom) {
-        this.idDificultat = 0;
-        this.nom = nom;
-    }
-
     public Dificultat(int id, String nom) {
-        this.idDificultat = id;
+        super(id);
         this.nom = nom;
     }
 
     //Getters i Setters
-    public int getIdDificultat() {
-        return idDificultat;
-    }
-    public void setIdDificultat(int idDificultat) {
-        this.idDificultat = idDificultat;
-    }
     public String getNom() {
         return nom;
     }

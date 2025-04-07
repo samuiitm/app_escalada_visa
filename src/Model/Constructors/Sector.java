@@ -1,7 +1,6 @@
 package Model.Constructors;
 
-public class Sector {
-    int idSector;
+public class Sector extends Entitat {
     String nom;
     String coordenades;
     String aproximacio;
@@ -10,19 +9,8 @@ public class Sector {
     String restriccions;
     int id_escola;
 
-    public Sector(String nom, String coordenades, String aproximacio, int numero_vies, String popularitat, String restriccions, int id_escola) {
-        this.idSector = 0;
-        this.nom = nom;
-        this.coordenades = coordenades;
-        this.aproximacio = aproximacio;
-        this.numero_vies = numero_vies;
-        this.popularitat = popularitat;
-        this.restriccions = restriccions;
-        this.id_escola = id_escola;
-    }
-
     public Sector(int id, String nom, String coordenades, String aproximacio, int numero_vies, String popularitat, String restriccions, int id_escola) {
-        this.idSector = id;
+        super(id);
         this.nom = nom;
         this.coordenades = coordenades;
         this.aproximacio = aproximacio;
@@ -33,12 +21,6 @@ public class Sector {
     }
 
     //Getters i Setters
-    public int getIdSector() {
-        return idSector;
-    }
-    public void setIdSector(int idSector) {
-        this.idSector = idSector;
-    }
     public String getNom() {
         return nom;
     }
