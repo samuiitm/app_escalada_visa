@@ -25,22 +25,23 @@
     </dependencies>
 
     <build>
+        <!--
         <plugins>
-            <!-- Usando dockerfile-maven-plugin de Spotify -->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.0</version> <!-- Cambié a una versión compatible -->
+                <version>1.4.0</version>
                 <executions>
                     <execution>
                         <goals>
                             <goal>build</goal>
-                            <goal>push</goal> <!-- Este es opcional si no necesitas subirlo -->
+                            <goal>push</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
+        -->
     </build>
 
     <repositories>
