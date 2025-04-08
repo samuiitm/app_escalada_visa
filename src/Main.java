@@ -1,10 +1,13 @@
 import Controlador.MenuCrear;
 import Vista.Vista;
+import Model.ConnexioBD;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         Scanner scanner = new Scanner(System.in);
         int opcio = -1;
 
