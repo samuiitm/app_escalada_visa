@@ -132,4 +132,32 @@ public class EscaladorDAO implements CRUD<Escalador> {
         }
     }
 
+    public Escalador obtenirPerNom(String nom) {
+        Escalador escalador = null;
+        String sql = "SELECT * FROM escaladors WHERE nom = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nom);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                escalador = new Escalador(
+                        rs.getInt("id_escalador"),
+                        rs.getString("nom"),
+                        rs.getString("alies"),
+                        rs.getInt("edat"),
+                        rs.getString("nivell_maxim"),
+                        rs.getInt("via_nivell_max"),
+                        rs.getString("estil_preferit")
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return escalador;
+    }
 }
