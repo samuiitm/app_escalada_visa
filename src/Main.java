@@ -1,8 +1,6 @@
 import Controlador.MenuCrear;
 import Vista.Vista;
-import Model.ConnexioBD;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 
