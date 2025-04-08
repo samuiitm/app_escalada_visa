@@ -19,9 +19,9 @@ public class EscaladorDAO implements CRUD<Escalador> {
             stmt.setString(1, escalador.getNom());
             stmt.setString(2, escalador.getAlies());
             stmt.setInt(3, escalador.getEdat());
-            stmt.setString(4, escalador.getNivell_maxim());
-            stmt.setInt(5, escalador.getVia_nivell_maxim());
-            stmt.setString(6, escalador.getEstil_preferit());
+            stmt.setString(4, escalador.getNivellMaxim());
+            stmt.setInt(5, escalador.getViaNivellMaxim());
+            stmt.setString(6, escalador.getEstilPreferit());
 
             stmt.executeUpdate();
 
@@ -105,9 +105,9 @@ public class EscaladorDAO implements CRUD<Escalador> {
             stmt.setString(1, escalador.getNom());
             stmt.setString(2, escalador.getAlies());
             stmt.setInt(3, escalador.getEdat());
-            stmt.setString(4, escalador.getNivell_maxim());
-            stmt.setInt(5, escalador.getVia_nivell_maxim());
-            stmt.setString(6, escalador.getEstil_preferit());
+            stmt.setString(4, escalador.getNivellMaxim());
+            stmt.setInt(5, escalador.getViaNivellMaxim());
+            stmt.setString(6, escalador.getEstilPreferit());
             stmt.setInt(7, escalador.getIdEscalador());
 
             stmt.executeUpdate();
