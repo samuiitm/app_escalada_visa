@@ -8,5 +8,5 @@ public interface CRUD<T> {
     List<T> obtenirTots();
     void actualitzar(T obj);
     void eliminar(int id);
-    T obtenirPerNom(String nom);
+    int obtenirPerNom(String nom);
 }
