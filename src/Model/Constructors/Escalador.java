@@ -54,22 +54,22 @@ public class Escalador {
     public void setEdat(int edat) {
         this.edat = edat;
     }
-    public String getNivell_maxim() {
+    public String getNivellMaxim() {
         return nivell_maxim;
     }
-    public void setNivell_maxim(String nivell_maxim) {
+    public void setNivellMaxim(String nivell_maxim) {
         this.nivell_maxim = nivell_maxim;
     }
-    public int getVia_nivell_maxim() {
+    public int getViaNivellMaxim() {
         return via_nivell_maxim;
     }
-    public void setVia_nivell_maxim(int via_nivell_maxim) {
+    public void setViaNivellMaxim(int via_nivell_maxim) {
         this.via_nivell_maxim = via_nivell_maxim;
     }
-    public String getEstil_preferit() {
+    public String getEstilPreferit() {
         return estil_preferit;
     }
-    public void setEstil_preferit(String estil_preferit) {
+    public void setEstilPreferit(String estil_preferit) {
         this.estil_preferit = estil_preferit;
     }
 

@@ -42,10 +42,10 @@ public class Escola {
     public void setNom(String nom) {
         this.nom = nom;
     }
-    public int getId_localitzacio() {
+    public int getIdLocalitzacio() {
         return id_localitzacio;
     }
-    public void setId_localitzacio(int id_localitzacio) {
+    public void setIdLocalitzacio(int id_localitzacio) {
         this.id_localitzacio = id_localitzacio;
     }
     public String getAproximacio() {
@@ -54,10 +54,10 @@ public class Escola {
     public void setAproximacio(String aproximacio) {
         this.aproximacio = aproximacio;
     }
-    public int getNumero_vies() {
+    public int getNumeroVies() {
         return numero_vies;
     }
-    public void setNumero_vies(int numero_vies) {
+    public void setNumeroVies(int numero_vies) {
         this.numero_vies = numero_vies;
     }
     public String getPopularitat() {

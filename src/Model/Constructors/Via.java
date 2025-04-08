@@ -51,10 +51,10 @@ public class Via {
     public void setNom(String nom) {
         this.nom = nom;
     }
-    public int getId_tipus_via() {
+    public int getIdTipusVia() {
         return id_tipus_via;
     }
-    public void setId_tipus_via(int id_tipus_via) {
+    public void setIdTipusVia(int id_tipus_via) {
         this.id_tipus_via = id_tipus_via;
     }
     public String getEstat() {
@@ -69,28 +69,28 @@ public class Via {
     public void setOrientacio(String orientacio) {
         this.orientacio = orientacio;
     }
-    public int getId_ancoratge() {
+    public int getIdAncoratge() {
         return id_ancoratge;
     }
-    public void setId_ancoratge(int id_ancoratge) {
+    public void setIdAncoratge(int id_ancoratge) {
         this.id_ancoratge = id_ancoratge;
     }
-    public int getId_tipus_roca() {
+    public int getIdTipusRoca() {
         return id_tipus_roca;
     }
-    public void setId_tipus_roca(int id_tipus_roca) {
+    public void setIdTipusRoca(int id_tipus_roca) {
         this.id_tipus_roca = id_tipus_roca;
     }
-    public int getId_sector() {
+    public int getIdSector() {
         return id_sector;
     }
-    public void setId_sector(int id_sector) {
+    public void setIdSector(int id_sector) {
         this.id_sector = id_sector;
     }
-    public int getId_material() {
+    public int getIdMaterial() {
         return id_material;
     }
-    public void setId_material(int id_material) {
+    public void setIdMaterial(int id_material) {
         this.id_material = id_material;
     }
     public int getCreador() {

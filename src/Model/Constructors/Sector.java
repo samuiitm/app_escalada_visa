@@ -57,10 +57,10 @@ public class Sector {
     public void setAproximacio(String aproximacio) {
         this.aproximacio = aproximacio;
     }
-    public int getNumero_vies() {
+    public int getNumeroVies() {
         return numero_vies;
     }
-    public void setNumero_vies(int numero_vies) {
+    public void setNumeroVies(int numero_vies) {
         this.numero_vies = numero_vies;
     }
     public String getPopularitat() {
@@ -75,10 +75,10 @@ public class Sector {
     public void setRestriccions(String restriccions) {
         this.restriccions = restriccions;
     }
-    public int getId_escola() {
+    public int getIdEscola() {
         return id_escola;
     }
-    public void setId_escola(int id_escola) {
+    public void setIdEscola(int id_escola) {
         this.id_escola = id_escola;
     }
 
