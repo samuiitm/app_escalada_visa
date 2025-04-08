@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EscolaDAO implements CRUD<Escola> {
-
     @Override
     public void inserir(Escola escola) {
         String sql = "INSERT INTO escoles (nom, id_localitzacio, aproximacio, numero_vies, popularitat, restriccions) VALUES (?, ?, ?, ?, ?, ?)";
@@ -126,4 +125,28 @@ public class EscolaDAO implements CRUD<Escola> {
             System.out.println("Error en eliminar escola: " + e.getMessage());
         }
     }
+
+    @Override
+    public int obtenirPerNom(String nom) {
+        int idEscola = -1;
+        String sql = "SELECT * FROM escoles WHERE nom = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nom);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                idEscola = rs.getInt("id_escola");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return idEscola;
+    }
+
 }

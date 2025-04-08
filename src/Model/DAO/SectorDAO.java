@@ -1,6 +1,7 @@
 package Model.DAO;
 
 import Model.ConnexioBD;
+import Model.Constructors.Escalador;
 import Model.Constructors.Sector;
 import Model.Interfaces.CRUD;
 
@@ -135,5 +136,26 @@ public class SectorDAO implements CRUD<Sector> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public int obtenirPerNom(String nom) {
+        int idSector = -1;
+        String sql = "SELECT id_sector FROM sectors WHERE nom = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nom);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                idSector = rs.getInt("id_sector");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return idSector;
     }
 }
