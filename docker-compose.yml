@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mysql:
     image: mysql:8.0
@@ -10,17 +8,6 @@ services:
       MYSQL_USER: visa
       MYSQL_PASSWORD: P@ssw0rd
     volumes:
-      - ./Docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./Docker:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
-
-  # Agregar tu aplicación Java (esto es un ejemplo)
-  app_escalada_visa:
-    build: .
-    container_name: app_escalada_visa
-    environment:
-      - SPRING_PROFILES_ACTIVE=prod
-    ports:
-      - "8080:8080"
-    depends_on:
-      - mysql
