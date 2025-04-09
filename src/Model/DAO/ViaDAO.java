@@ -144,4 +144,27 @@ public class ViaDAO implements CRUD<Via> {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public int obtenirPerNom(String nom) {
+        Via via = null;
+        int id = -1;
+        String sql = "SELECT * FROM vias WHERE nom = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nom);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                id = rs.getInt("id_via");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return id;
+    }
 }
