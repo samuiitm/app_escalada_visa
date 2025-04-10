@@ -28,4 +28,15 @@ public class Vista {
                            "4.\tEscalador\n" +
                            "0.\tTornar\n");
     }
+
+    public static void mostrarMenuLlistarTots() {
+        System.out.println("-----------------------------------\n" +
+                           "-------- LLISTAR TOTS --------\n" +
+                           "-----------------------------------\n" +
+                           "1.\tEscola\n" +
+                           "2.\tSector\n" +
+                           "3.\tVia\n" +
+                           "4.\tEscalador\n" +
+                           "0.\tTornar\n");
+    }
 }
