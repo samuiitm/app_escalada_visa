@@ -23,7 +23,7 @@ public class CrearEscola {
             idLocalitzacio = localitzacioDAO.obtenirPerNom(nomLocalitzacio);
         } catch (NoExisteix e) {
             Vista.mostrarMissatge(e.getMessage());
-            return;  // Si no existe la localització, terminamos la ejecución
+            return;
         }
 
         Vista.mostrarMissatge("Aproximació a l'escola (Descripció de com arribar):");

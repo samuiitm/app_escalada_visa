@@ -39,7 +39,7 @@ public class CrearSector {
             idEscola = escolaDAO.obtenirPerNom(nomEscola);
         } catch (NoExisteix e) {
             Vista.mostrarMissatge(e.getMessage());
-            return;  // Si no existe la escola, terminamos la ejecución
+            return;
         }
 
         Sector sector = new Sector(nom, coordenades, aproximacio, numeroVies, popularitat, restriccions, idEscola);
