@@ -19,6 +19,12 @@ public class Tram {
     }
 
     //Getters i Setters
+    public int getIdTram() {
+        return idTram;
+    }
+    public void setIdTram(int idTram) {
+        this.idTram = idTram;
+    }
     public String getNom() {
         return nom;
     }
