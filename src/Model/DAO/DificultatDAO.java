@@ -2,6 +2,7 @@ package Model.DAO;
 
 import Model.ConnexioBD;
 import Model.Constructors.Dificultat;
+import Model.Exceptions.NoExisteix;
 import Model.Interfaces.CRUD;
 
 import java.sql.*;
@@ -112,7 +113,7 @@ public class DificultatDAO implements CRUD<Dificultat> {
     }
 
     @Override
-    public int obtenirPerNom(String nom) {
+    public int obtenirPerNom(String nom) throws NoExisteix {
         int id = -1;
         String sql = "SELECT id_dificultat FROM dificultats WHERE nom = ?";
 
@@ -124,6 +125,8 @@ public class DificultatDAO implements CRUD<Dificultat> {
 
             if (rs.next()) {
                 id = rs.getInt("id_dificultat");
+            } else {
+                throw new NoExisteix("No existeix cap dificultat amb el nom: " + nom);
             }
 
         } catch (SQLException e) {

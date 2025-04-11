@@ -2,6 +2,7 @@ package Model.DAO;
 
 import Model.ConnexioBD;
 import Model.Constructors.Ancoratge;
+import Model.Exceptions.NoExisteix;
 import Model.Interfaces.CRUD;
 
 import java.sql.*;
@@ -112,7 +113,7 @@ public class AncoratgeDAO implements CRUD<Ancoratge> {
     }
 
     @Override
-    public int obtenirPerNom(String nom) {
+    public int obtenirPerNom(String nom) throws NoExisteix {
         int id = -1;
         String sql = "SELECT id_ancoratge FROM ancoratges WHERE nom = ?";
 
@@ -124,6 +125,8 @@ public class AncoratgeDAO implements CRUD<Ancoratge> {
 
             if (rs.next()) {
                 id = rs.getInt("id_ancoratge");
+            } else {
+                throw new NoExisteix("No existeix cap ancoratge amb el nom: " + nom);
             }
 
         } catch (SQLException e) {

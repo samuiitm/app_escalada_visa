@@ -2,6 +2,7 @@ package Model.DAO;
 
 import Model.ConnexioBD;
 import Model.Constructors.Via;
+import Model.Exceptions.NoExisteix;
 import Model.Interfaces.CRUD;
 
 import java.sql.*;
@@ -146,10 +147,9 @@ public class ViaDAO implements CRUD<Via> {
     }
 
     @Override
-    public int obtenirPerNom(String nom) {
-        Via via = null;
+    public int obtenirPerNom(String nom) throws NoExisteix {
         int id = -1;
-        String sql = "SELECT * FROM vias WHERE nom = ?";
+        String sql = "SELECT id_via FROM vies WHERE nom = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -159,6 +159,8 @@ public class ViaDAO implements CRUD<Via> {
 
             if (rs.next()) {
                 id = rs.getInt("id_via");
+            } else {
+                throw new NoExisteix("No existeix cap via amb el nom: " + nom);
             }
 
         } catch (SQLException e) {

@@ -2,6 +2,7 @@ package Model.DAO;
 
 import Model.Constructors.Escola;
 import Model.ConnexioBD;
+import Model.Exceptions.NoExisteix;
 import Model.Interfaces.CRUD;
 
 import java.sql.*;
@@ -127,9 +128,9 @@ public class EscolaDAO implements CRUD<Escola> {
     }
 
     @Override
-    public int obtenirPerNom(String nom) {
-        int idEscola = -1;
-        String sql = "SELECT * FROM escoles WHERE nom = ?";
+    public int obtenirPerNom(String nom) throws NoExisteix {
+        int id = -1;
+        String sql = "SELECT id_escola FROM escoles WHERE nom = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -138,15 +139,15 @@ public class EscolaDAO implements CRUD<Escola> {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                idEscola = rs.getInt("id_escola");
+                id = rs.getInt("id_escola");
+            } else {
+                throw new NoExisteix("No existeix cap escola amb el nom: " + nom);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-
-        return idEscola;
+        return id;
     }
-
 }

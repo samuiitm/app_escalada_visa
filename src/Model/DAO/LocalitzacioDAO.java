@@ -2,6 +2,7 @@ package Model.DAO;
 
 import Model.ConnexioBD;
 import Model.Constructors.Localitzacio;
+import Model.Exceptions.NoExisteix;
 import Model.Interfaces.CRUD;
 
 import java.sql.*;
@@ -122,18 +123,20 @@ public class LocalitzacioDAO implements CRUD<Localitzacio> {
     }
 
     @Override
-    public int obtenirPerNom(String ciutat) {
+    public int obtenirPerNom(String nom) throws NoExisteix {
         int id = -1;
-        String sql = "SELECT id_localitzacio FROM localitzacions WHERE ciutat = ?";
+        String sql = "SELECT id_localitzacio FROM localitzacions WHERE nom = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, ciutat);
+            stmt.setString(1, nom);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
                 id = rs.getInt("id_localitzacio");
+            } else {
+                throw new NoExisteix("No existeix cap localització amb el nom: " + nom);
             }
 
         } catch (SQLException e) {

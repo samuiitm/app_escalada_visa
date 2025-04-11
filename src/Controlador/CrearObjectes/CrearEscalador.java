@@ -2,12 +2,15 @@ package Controlador.CrearObjectes;
 
 import Model.Constructors.Escalador;
 import Model.DAO.EscaladorDAO;
+import Model.DAO.ViaDAO;
 import Vista.Vista;
 
 import java.util.Scanner;
 
 public class CrearEscalador {
     public static void crearEscalador() {
+        EscaladorDAO escaladorDAO = new EscaladorDAO();
+        ViaDAO viaDAO = new ViaDAO();
         Scanner scanner = new Scanner(System.in);
 
         Vista.mostrarMissatge("Introdueix el nom:");
@@ -22,15 +25,15 @@ public class CrearEscalador {
         Vista.mostrarMissatge("Nivell màxim:");
         String nivell = scanner.nextLine();
 
-        Vista.mostrarMissatge("ID de la via més difícil:");
-        int viaMax = Integer.parseInt(scanner.nextLine());
+        Vista.mostrarMissatge("Nom de la via més difícil:");
+        String nomViaMax = scanner.nextLine();
+        int idViaMax = viaDAO.obtenirPerNom(nomViaMax);
 
         Vista.mostrarMissatge("Estil preferit (Esportiva, Clàssica, Gel):");
         String estil = scanner.nextLine();
 
-        Escalador escalador = new Escalador(nom, alies, edat, nivell, viaMax, estil);
+        Escalador escalador = new Escalador(nom, alies, edat, nivell, idViaMax, estil);
 
-        EscaladorDAO escaladorDAO = new EscaladorDAO();
         escaladorDAO.inserir(escalador);
 
         Vista.mostrarMissatge("Escalador creat correctament.");

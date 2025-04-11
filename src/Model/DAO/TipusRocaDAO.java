@@ -2,6 +2,7 @@ package Model.DAO;
 
 import Model.ConnexioBD;
 import Model.Constructors.Tipus_Roca;
+import Model.Exceptions.NoExisteix;
 import Model.Interfaces.CRUD;
 
 import java.sql.*;
@@ -111,7 +112,8 @@ public class TipusRocaDAO implements CRUD<Tipus_Roca> {
         }
     }
 
-    public int obtenirPerNom(String nom) {
+    @Override
+    public int obtenirPerNom(String nom) throws NoExisteix {
         int id = -1;
         String sql = "SELECT id_tipus_roca FROM tipus_roca WHERE nom = ?";
 
@@ -123,6 +125,8 @@ public class TipusRocaDAO implements CRUD<Tipus_Roca> {
 
             if (rs.next()) {
                 id = rs.getInt("id_tipus_roca");
+            } else {
+                throw new NoExisteix("No existeix cap tipus roca amb el nom: " + nom);
             }
 
         } catch (SQLException e) {

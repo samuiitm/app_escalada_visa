@@ -2,6 +2,7 @@ package Model.DAO;
 
 import Model.ConnexioBD;
 import Model.Constructors.Escalador;
+import Model.Exceptions.NoExisteix;
 import Model.Interfaces.CRUD;
 
 import java.sql.*;
@@ -132,10 +133,10 @@ public class EscaladorDAO implements CRUD<Escalador> {
         }
     }
 
-    public int obtenirPerNom(String nom) {
-        Escalador escalador = null;
+    @Override
+    public int obtenirPerNom(String nom) throws NoExisteix {
         int id = -1;
-        String sql = "SELECT * FROM escaladors WHERE nom = ?";
+        String sql = "SELECT id_escalador FROM escaladors WHERE nom = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -144,7 +145,9 @@ public class EscaladorDAO implements CRUD<Escalador> {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                    id = rs.getInt("id_escalador");
+                id = rs.getInt("id_escalador");
+            } else {
+                throw new NoExisteix("No existeix cap escalador amb el nom: " + nom);
             }
 
         } catch (SQLException e) {

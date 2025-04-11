@@ -3,6 +3,7 @@ package Model.DAO;
 import Model.ConnexioBD;
 import Model.Constructors.Escalador;
 import Model.Constructors.Sector;
+import Model.Exceptions.NoExisteix;
 import Model.Interfaces.CRUD;
 
 import java.sql.*;
@@ -138,8 +139,9 @@ public class SectorDAO implements CRUD<Sector> {
         }
     }
 
-    public int obtenirPerNom(String nom) {
-        int idSector = -1;
+    @Override
+    public int obtenirPerNom(String nom) throws NoExisteix {
+        int id = -1;
         String sql = "SELECT id_sector FROM sectors WHERE nom = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
@@ -149,13 +151,15 @@ public class SectorDAO implements CRUD<Sector> {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                idSector = rs.getInt("id_sector");
+                id = rs.getInt("id_sector");
+            } else {
+                throw new NoExisteix("No existeix cap sector amb el nom: " + nom);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return idSector;
+        return id;
     }
 }

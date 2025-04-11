@@ -2,6 +2,7 @@ package Model.DAO;
 
 import Model.ConnexioBD;
 import Model.Constructors.Tram;
+import Model.Exceptions.NoExisteix;
 import Model.Interfaces.CRUD;
 
 import java.sql.*;
@@ -120,7 +121,8 @@ public class TramDAO implements CRUD<Tram> {
         }
     }
 
-    public int obtenirPerNom(String nom) {
+    @Override
+    public int obtenirPerNom(String nom) throws NoExisteix {
         int id = -1;
         String sql = "SELECT id_tram FROM trams WHERE nom = ?";
 
@@ -132,6 +134,8 @@ public class TramDAO implements CRUD<Tram> {
 
             if (rs.next()) {
                 id = rs.getInt("id_tram");
+            } else {
+                throw new NoExisteix("No existeix cap tram amb el nom: " + nom);
             }
 
         } catch (SQLException e) {

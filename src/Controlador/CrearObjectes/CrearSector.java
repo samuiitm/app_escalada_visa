@@ -1,6 +1,7 @@
 package Controlador.CrearObjectes;
 
 import Model.Constructors.Sector;
+import Model.DAO.EscolaDAO;
 import Model.DAO.SectorDAO;
 import Vista.Vista;
 
@@ -8,6 +9,8 @@ import java.util.Scanner;
 
 public class CrearSector {
     public static void crearSector() {
+        SectorDAO sectorDAO = new SectorDAO();
+        EscolaDAO escolaDAO = new EscolaDAO();
         Scanner scanner = new Scanner(System.in);
 
         Vista.mostrarMissatge("Introdueix el nom del sector:");
@@ -28,12 +31,11 @@ public class CrearSector {
         Vista.mostrarMissatge("Restriccions del sector:");
         String restriccions = scanner.nextLine();
 
-        Vista.mostrarMissatge("ID de l'escola associada al sector:");
-        int idEscola = Integer.parseInt(scanner.nextLine());
+        Vista.mostrarMissatge("Nom de l'escola associada al sector:");
+        String nomEscola = scanner.nextLine();
+        int idEscola = escolaDAO.obtenirPerNom(nomEscola);
 
         Sector sector = new Sector(nom, coordenades, aproximacio, numeroVies, popularitat, restriccions, idEscola);
-
-        SectorDAO sectorDAO = new SectorDAO();
         sectorDAO.inserir(sector);
 
         Vista.mostrarMissatge("Sector creat correctament.");
