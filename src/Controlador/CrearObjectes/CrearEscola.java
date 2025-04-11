@@ -4,10 +4,10 @@ import java.util.Scanner;
 import Model.Constructors.Escola;
 import Model.DAO.EscolaDAO;
 import Model.DAO.LocalitzacioDAO;
+import Model.Exceptions.NoExisteix;
 import Vista.Vista;
 
 public class CrearEscola {
-
     public static void crearEscola() {
         EscolaDAO escolaDAO = new EscolaDAO();
         LocalitzacioDAO localitzacioDAO = new LocalitzacioDAO();
@@ -16,9 +16,15 @@ public class CrearEscola {
         Vista.mostrarMissatge("Introdueix el nom de l'escola:");
         String nom = scanner.nextLine();
 
-        Vista.mostrarMissatge("Nom de la localització:");
-        String nomLocalitzacio = scanner.nextLine();
-        int idLocalitzacio = localitzacioDAO.obtenirPerNom(nomLocalitzacio);
+        int idLocalitzacio = -1;
+        try {
+            Vista.mostrarMissatge("Nom de la localització:");
+            String nomLocalitzacio = scanner.nextLine();
+            idLocalitzacio = localitzacioDAO.obtenirPerNom(nomLocalitzacio);
+        } catch (NoExisteix e) {
+            Vista.mostrarMissatge(e.getMessage());
+            return;  // Si no existe la localització, terminamos la ejecución
+        }
 
         Vista.mostrarMissatge("Aproximació a l'escola (Descripció de com arribar):");
         String aproximacio = scanner.nextLine();

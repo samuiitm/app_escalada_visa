@@ -3,6 +3,7 @@ package Controlador.CrearObjectes;
 import Model.Constructors.Sector;
 import Model.DAO.EscolaDAO;
 import Model.DAO.SectorDAO;
+import Model.Exceptions.NoExisteix;
 import Vista.Vista;
 
 import java.util.Scanner;
@@ -31,9 +32,15 @@ public class CrearSector {
         Vista.mostrarMissatge("Restriccions del sector:");
         String restriccions = scanner.nextLine();
 
-        Vista.mostrarMissatge("Nom de l'escola associada al sector:");
-        String nomEscola = scanner.nextLine();
-        int idEscola = escolaDAO.obtenirPerNom(nomEscola);
+        int idEscola = -1;
+        try {
+            Vista.mostrarMissatge("Nom de l'escola associada al sector:");
+            String nomEscola = scanner.nextLine();
+            idEscola = escolaDAO.obtenirPerNom(nomEscola);
+        } catch (NoExisteix e) {
+            Vista.mostrarMissatge(e.getMessage());
+            return;  // Si no existe la escola, terminamos la ejecución
+        }
 
         Sector sector = new Sector(nom, coordenades, aproximacio, numeroVies, popularitat, restriccions, idEscola);
         sectorDAO.inserir(sector);
