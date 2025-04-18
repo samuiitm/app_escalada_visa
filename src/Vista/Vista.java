@@ -2,7 +2,7 @@ package Vista;
 
 public class Vista {
     public static void mostrarMissatge(String missatge) {
-        System.out.println(missatge + "\n");
+        System.out.println(missatge);
     }
 
     public static void mostrarMenuPrincipal() {
