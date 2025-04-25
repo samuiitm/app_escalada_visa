@@ -1,4 +1,4 @@
-import Controlador.MenuCrear;
+import Controlador.*;
 import Vista.Vista;
 
 import java.sql.SQLException;
@@ -29,18 +29,22 @@ public class Main {
 
                 // CAS 2: MODIFICAR
                 case 2:
+                    MenuActualitzar.menuActualitzar();
                     break;
 
                 // CAS 3: LLISTAR UN
                 case 3:
+                    MenuLlistarObjecte.menuLlistarObjecte();
                     break;
 
                 // CAS 4: LLISTAR TOT
                 case 4:
+                    MenuLlistarTots.menuLlistarTots();
                     break;
 
                 // CAS 5: ELIMINAR
                 case 5:
+                    MenuEliminar.menuEliminar();
                     break;
 
                 // CAS 6: CONSULTES PRECREADES

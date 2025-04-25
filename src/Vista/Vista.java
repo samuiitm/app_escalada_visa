@@ -73,4 +73,18 @@ public class Vista {
                            "0.\tTornar\n");
     }
 
+    public static void mostrarMenuConsultesPrecreades() {
+        System.out.println("-----------------------------------\n" +
+                           "------------ CONSULTES ------------\n" +
+                           "-----------------------------------\n" +
+                           "1.\tVies disponibles d'una Escola\n" +
+                           "2.\tCercar vies per dificultat\n" +
+                           "3.\tCercar vies per estat\n" +
+                           "4.\tConsultar escoles amb restriccions\n" +
+                           "5.\tMostrar sectors amb més de X vies\n" +
+                           "6.\tMostrar escaladors amb el mateix nivell màxim\n" +
+                           "7.\tMostrar vies que han passat a 'Apte'\n" +
+                           "8.\tMostrar vies més llargues d'una escola\n" +
+                           "0.\tTornar\n");
+    }
 }
