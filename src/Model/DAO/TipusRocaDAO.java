@@ -57,7 +57,7 @@ public class TipusRocaDAO implements CRUD<Tipus_Roca> {
     }
 
     @Override
-    public List<Tipus_Roca> obtenirTots() {
+    public List<Tipus_Roca> llistarTots() {
         List<Tipus_Roca> llista = new ArrayList<>();
         String sql = "SELECT * FROM tipus_roca";
 

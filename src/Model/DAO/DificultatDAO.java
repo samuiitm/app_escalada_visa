@@ -58,7 +58,7 @@ public class DificultatDAO implements CRUD<Dificultat> {
     }
 
     @Override
-    public List<Dificultat> obtenirTots() {
+    public List<Dificultat> llistarTots() {
         List<Dificultat> llista = new ArrayList<>();
         String sql = "SELECT * FROM dificultats";
 

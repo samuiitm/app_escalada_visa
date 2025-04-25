@@ -57,7 +57,7 @@ public class MaterialDAO implements CRUD<Material> {
     }
 
     @Override
-    public List<Material> obtenirTots() {
+    public List<Material> llistarTots() {
         List<Material> llista = new ArrayList<>();
         String sql = "SELECT * FROM materials";
 

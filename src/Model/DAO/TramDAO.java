@@ -62,7 +62,7 @@ public class TramDAO implements CRUD<Tram> {
     }
 
     @Override
-    public List<Tram> obtenirTots() {
+    public List<Tram> llistarTots() {
         List<Tram> llista = new ArrayList<>();
         String sql = "SELECT * FROM trams";
 

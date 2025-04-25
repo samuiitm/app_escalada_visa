@@ -63,7 +63,7 @@ public class LocalitzacioDAO implements CRUD<Localitzacio> {
     }
 
     @Override
-    public List<Localitzacio> obtenirTots() {
+    public List<Localitzacio> llistarTots() {
         List<Localitzacio> llista = new ArrayList<>();
         String sql = "SELECT * FROM localitzacions";
 

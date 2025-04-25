@@ -72,7 +72,7 @@ public class SectorDAO implements CRUD<Sector> {
     }
 
     @Override
-    public List<Sector> obtenirTots() {
+    public List<Sector> llistarTots() {
         List<Sector> llista = new ArrayList<>();
         String sql = "SELECT * FROM sectors";
 
@@ -161,5 +161,34 @@ public class SectorDAO implements CRUD<Sector> {
         }
 
         return id;
+    }
+
+    public List<Sector> llistarPerNom(String nom) {
+        List<Sector> sectors = new ArrayList<>();
+        try {
+            Connection conn = ConnexioBD.getConnexio();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Sector WHERE nom = ?");
+            ps.setString(1, nom);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Sector sector = new Sector(
+                        rs.getInt("idSector"),
+                        rs.getString("nom"),
+                        rs.getString("coordenades"),
+                        rs.getString("aproximacio"),
+                        rs.getInt("numeroVies"),
+                        rs.getString("popularitat"),
+                        rs.getString("restriccions"),
+                        rs.getInt("idEscola")
+                );
+                sectors.add(sector);
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return sectors;
     }
 }

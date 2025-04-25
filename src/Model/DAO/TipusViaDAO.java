@@ -57,7 +57,7 @@ public class TipusViaDAO implements CRUD<Tipus_Via> {
     }
 
     @Override
-    public List<Tipus_Via> obtenirTots() {
+    public List<Tipus_Via> llistarTots() {
         List<Tipus_Via> llista = new ArrayList<>();
         String sql = "SELECT * FROM tipus_via";
 

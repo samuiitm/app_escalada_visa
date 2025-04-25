@@ -58,7 +58,7 @@ public class AncoratgeDAO implements CRUD<Ancoratge> {
     }
 
     @Override
-    public List<Ancoratge> obtenirTots() {
+    public List<Ancoratge> llistarTots() {
         List<Ancoratge> llista = new ArrayList<>();
         String sql = "SELECT * FROM ancoratges";
 

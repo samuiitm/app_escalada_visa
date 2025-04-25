@@ -75,7 +75,7 @@ public class ViaDAO implements CRUD<Via> {
     }
 
     @Override
-    public List<Via> obtenirTots() {
+    public List<Via> llistarTots() {
         List<Via> llista = new ArrayList<>();
         String sql = "SELECT * FROM vias";
 
@@ -168,5 +168,36 @@ public class ViaDAO implements CRUD<Via> {
         }
 
         return id;
+    }
+
+    public List<Via> llistarPerNom(String nom) {
+        List<Via> vies = new ArrayList<>();
+        try {
+            Connection conn = ConnexioBD.getConnexio();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Via WHERE nom = ?");
+            ps.setString(1, nom);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Via via = new Via(
+                        rs.getInt("idVia"),
+                        rs.getString("nom"),
+                        rs.getInt("idTipusVia"),
+                        rs.getString("estat"),
+                        rs.getString("orientacio"),
+                        rs.getInt("idAncoratge"),
+                        rs.getInt("idTipusRoca"),
+                        rs.getInt("idSector"),
+                        rs.getInt("idMaterial"),
+                        rs.getInt("idCreador")
+                );
+                vies.add(via);
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return vies;
     }
 }

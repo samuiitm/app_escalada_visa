@@ -62,7 +62,7 @@ public class EscolaDAO implements CRUD<Escola> {
     }
 
     @Override
-    public List<Escola> obtenirTots() {
+    public List<Escola> llistarTots() {
         List<Escola> escoles = new ArrayList<>();
         String sql = "SELECT * FROM escoles";
 
@@ -149,5 +149,33 @@ public class EscolaDAO implements CRUD<Escola> {
         }
 
         return id;
+    }
+
+    public List<Escola> llistarPerNom(String nom) {
+        List<Escola> escoles = new ArrayList<>();
+        try {
+            Connection conn = ConnexioBD.getConnexio();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Escola WHERE nom = ?");
+            ps.setString(1, nom);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Escola escola = new Escola(
+                        rs.getInt("idEscola"),
+                        rs.getString("nom"),
+                        rs.getInt("idLocalitzacio"),
+                        rs.getString("aproximacio"),
+                        rs.getInt("numeroVies"),
+                        rs.getString("popularitat"),
+                        rs.getString("restriccions")
+                );
+                escoles.add(escola);
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return escoles;
     }
 }

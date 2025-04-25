@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EscaladorDAO implements CRUD<Escalador> {
+    private Connection connection;
+
     @Override
     public void inserir(Escalador escalador) {
         String sql = "INSERT INTO escaladors (nom, alies, edat, nivell_maxim, via_nivell_max, estil_preferit) VALUES (?, ?, ?, ?, ?, ?)";
@@ -68,7 +70,7 @@ public class EscaladorDAO implements CRUD<Escalador> {
     }
 
     @Override
-    public List<Escalador> obtenirTots() {
+    public List<Escalador> llistarTots() {
         List<Escalador> llista = new ArrayList<>();
         String sql = "SELECT * FROM escaladors";
 
@@ -155,5 +157,33 @@ public class EscaladorDAO implements CRUD<Escalador> {
         }
 
         return id;
+    }
+
+    public List<Escalador> llistarPerNom(String nom) {
+        List<Escalador> escaladors = new ArrayList<>();
+        try {
+            Connection conn = ConnexioBD.getConnexio();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Escalador WHERE nom = ?");
+            ps.setString(1, nom);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Escalador escalador = new Escalador(
+                        rs.getInt("idEscalador"),
+                        rs.getString("nom"),
+                        rs.getString("alies"),
+                        rs.getInt("edat"),
+                        rs.getString("nivellMaxim"),
+                        rs.getInt("viaNivellMaxim"),
+                        rs.getString("estilPreferit")
+                );
+                escaladors.add(escalador);
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return escaladors;
     }
 }
