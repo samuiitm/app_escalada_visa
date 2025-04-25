@@ -1,20 +1,44 @@
 package Controlador.EliminarObjectes;
 
-import java.util.Scanner;
+import Model.Constructors.Sector;
 import Model.DAO.SectorDAO;
 import Vista.Vista;
+
+import java.util.List;
+import java.util.Scanner;
 
 public class EliminarSector {
 
     public static void eliminarSector() {
         Scanner scanner = new Scanner(System.in);
+        SectorDAO sectorDAO = new SectorDAO();
+
+        Vista.mostrarMissatge("Introdueix el nom del sector que vols eliminar:");
+        String nom = scanner.nextLine();
+
+        List<Sector> sectors = sectorDAO.llistarPerNom(nom);
+
+        if (sectors.isEmpty()) {
+            Vista.mostrarMissatge("No s'ha trobat cap sector amb aquest nom.");
+            return;
+        }
+
+        Vista.mostrarMissatge("Sectors trobats:");
+        for (Sector s : sectors) {
+            Vista.mostrarMissatge("ID: " + s.getIdSector() + " | Nom: " + s.getNom() +
+                    " | Coordenades: " + s.getCoordenades());
+        }
 
         Vista.mostrarMissatge("Introdueix l'ID del sector que vols eliminar:");
         int idSector = Integer.parseInt(scanner.nextLine());
 
-        SectorDAO sectorDAO = new SectorDAO();
-        sectorDAO.eliminar(idSector);
+        boolean trobat = sectors.stream().anyMatch(s -> s.getIdSector() == idSector);
+        if (!trobat) {
+            Vista.mostrarMissatge("ID no vàlid.");
+            return;
+        }
 
+        sectorDAO.eliminar(idSector);
         Vista.mostrarMissatge("Sector eliminat correctament.");
     }
 }
