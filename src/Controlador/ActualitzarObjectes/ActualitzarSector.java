@@ -6,6 +6,7 @@ import Model.DAO.SectorDAO;
 import Model.Exceptions.NoExisteix;
 import Vista.Vista;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ActualitzarSector {
@@ -17,14 +18,37 @@ public class ActualitzarSector {
         Vista.mostrarMissatge("Introdueix el nom del sector que vols actualitzar:");
         String nom = scanner.nextLine();
 
-        Sector sector;
-        try {
-            int id = sectorDAO.obtenirPerNom(nom);
-            sector = sectorDAO.obtenir(id);
-        } catch (NoExisteix e) {
-            Vista.mostrarMissatge(e.getMessage());
+        List<Sector> sectors = sectorDAO.llistarPerNom(nom);
+
+        if (sectors.isEmpty()) {
+            Vista.mostrarMissatge("No s'ha trobat cap sector amb aquest nom.");
             return;
         }
+
+        if (sectors.size() > 1) {
+            Vista.mostrarMissatge("S'ha trobat més d'un sector amb el nom '" + nom + "'. Selecciona el número del sector:");
+            for (int i = 0; i < sectors.size(); i++) {
+                Vista.mostrarMissatge((i + 1) + ". ID: " + sectors.get(i).getIdSector() + " | Coordenades: " + sectors.get(i).getCoordenades());
+            }
+
+            int eleccio = scanner.nextInt();
+            scanner.nextLine();
+
+            if (eleccio < 1 || eleccio > sectors.size()) {
+                Vista.mostrarMissatge("Opció invàlida. No es pot actualitzar.");
+                return;
+            }
+
+            Sector sector = sectors.get(eleccio - 1);
+            actualitzarSectorDetails(sector, scanner, escolaDAO);
+        } else {
+            Sector sector = sectors.get(0);
+            actualitzarSectorDetails(sector, scanner, escolaDAO);
+        }
+    }
+
+    private static void actualitzarSectorDetails(Sector sector, Scanner scanner, EscolaDAO escolaDAO) {
+        SectorDAO sectorDAO = new SectorDAO();
 
         Vista.mostrarMissatge("Coordenades actuals: " + sector.getCoordenades());
         Vista.mostrarMissatge("Noves coordenades (deixa buit per mantenir):");
@@ -65,7 +89,7 @@ public class ActualitzarSector {
 
         Sector sectorActualitzat = new Sector(
                 sector.getIdSector(),
-                nom,
+                sector.getNom(),
                 coordenades,
                 aproximacio,
                 numeroVies,

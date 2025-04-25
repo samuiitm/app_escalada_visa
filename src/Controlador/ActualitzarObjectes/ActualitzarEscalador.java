@@ -6,6 +6,7 @@ import Model.DAO.ViaDAO;
 import Model.Exceptions.NoExisteix;
 import Vista.Vista;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ActualitzarEscalador {
@@ -17,14 +18,37 @@ public class ActualitzarEscalador {
         Vista.mostrarMissatge("Introdueix el nom de l'escalador que vols actualitzar:");
         String nom = scanner.nextLine();
 
-        Escalador escalador;
-        try {
-            int id = escaladorDAO.obtenirPerNom(nom);
-            escalador = escaladorDAO.obtenir(id);
-        } catch (NoExisteix e) {
-            Vista.mostrarMissatge(e.getMessage());
+        List<Escalador> escaladors = escaladorDAO.llistarPerNom(nom);
+
+        if (escaladors.isEmpty()) {
+            Vista.mostrarMissatge("No s'ha trobat cap escalador amb aquest nom.");
             return;
         }
+
+        if (escaladors.size() > 1) {
+            Vista.mostrarMissatge("S'ha trobat més d'un escalador amb el nom '" + nom + "'. Selecciona el número de l'escalador:");
+            for (int i = 0; i < escaladors.size(); i++) {
+                Vista.mostrarMissatge((i + 1) + ". ID: " + escaladors.get(i).getIdEscalador() + " | Nom: " + escaladors.get(i).getNom());
+            }
+
+            int eleccio = scanner.nextInt();
+            scanner.nextLine();
+
+            if (eleccio < 1 || eleccio > escaladors.size()) {
+                Vista.mostrarMissatge("Opció invàlida. No es pot actualitzar.");
+                return;
+            }
+
+            Escalador escalador = escaladors.get(eleccio - 1);
+            actualizarEscaladorDetails(escalador, scanner, viaDAO);
+        } else {
+            Escalador escalador = escaladors.get(0);
+            actualizarEscaladorDetails(escalador, scanner, viaDAO);
+        }
+    }
+
+    private static void actualizarEscaladorDetails(Escalador escalador, Scanner scanner, ViaDAO viaDAO) {
+        EscaladorDAO escaladorDAO = new EscaladorDAO();
 
         Vista.mostrarMissatge("Àlies actual: " + escalador.getAlies());
         Vista.mostrarMissatge("Nou àlies (deixa buit per mantenir):");
@@ -60,7 +84,7 @@ public class ActualitzarEscalador {
 
         Escalador escaladorActualitzat = new Escalador(
                 escalador.getIdEscalador(),
-                nom,
+                escalador.getNom(),
                 alies,
                 edat,
                 nivell,

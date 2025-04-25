@@ -6,6 +6,7 @@ import Model.DAO.SectorDAO;
 import Model.Exceptions.NoExisteix;
 import Vista.Vista;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ActualitzarVia {
@@ -17,14 +18,37 @@ public class ActualitzarVia {
         Vista.mostrarMissatge("Introdueix el nom de la via que vols actualitzar:");
         String nom = scanner.nextLine();
 
-        Via via;
-        try {
-            int id = viaDAO.obtenirPerNom(nom);
-            via = viaDAO.obtenir(id);
-        } catch (NoExisteix e) {
-            Vista.mostrarMissatge(e.getMessage());
+        List<Via> vies = viaDAO.llistarPerNom(nom);
+
+        if (vies.isEmpty()) {
+            Vista.mostrarMissatge("No s'ha trobat cap via amb aquest nom.");
             return;
         }
+
+        if (vies.size() > 1) {
+            Vista.mostrarMissatge("S'ha trobat més d'una via amb el nom '" + nom + "'. Selecciona el número de la via:");
+            for (int i = 0; i < vies.size(); i++) {
+                Vista.mostrarMissatge((i + 1) + ". ID: " + vies.get(i).getIdVia() + " | Estat: " + vies.get(i).getEstat());
+            }
+
+            int eleccio = scanner.nextInt();
+            scanner.nextLine();
+
+            if (eleccio < 1 || eleccio > vies.size()) {
+                Vista.mostrarMissatge("Opció invàlida. No es pot actualitzar.");
+                return;
+            }
+
+            Via via = vies.get(eleccio - 1);
+            actualitzarViaDetails(via, scanner);
+        } else {
+            Via via = vies.get(0);
+            actualitzarViaDetails(via, scanner);
+        }
+    }
+
+    private static void actualitzarViaDetails(Via via, Scanner scanner) {
+        ViaDAO viaDAO = new ViaDAO();
 
         Vista.mostrarMissatge("ID del tipus de via actual: " + via.getIdTipusVia());
         Vista.mostrarMissatge("Nou ID de tipus de via (deixa buit per mantenir):");
