@@ -26,16 +26,16 @@ public class MenuLlistarTots {
 
             switch (opcio) {
                 case 1:
-                    LlistarTotsEscola.llistarTotesEscoles();
+                    LlistarTotsEscalador.llistarTotsEscaladors();
                     break;
                 case 2:
-                    LlistarTotsSector.llistarTotsSectors();
+                    LlistarTotsEscola.llistarTotesEscoles();
                     break;
                 case 3:
-                    LlistarTotsVia.llistarTotesVies();
+                    LlistarTotsSector.llistarTotsSectors();
                     break;
                 case 4:
-                    LlistarTotsEscalador.llistarTotsEscaladors();
+                    LlistarTotsVia.llistarTotesVies();
                     break;
                 case 0:
                     Vista.mostrarMissatge("Tornant al menú principal...\n");

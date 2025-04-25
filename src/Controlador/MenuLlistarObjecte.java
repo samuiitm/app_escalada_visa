@@ -26,16 +26,16 @@ public class MenuLlistarObjecte {
 
             switch (opcio) {
                 case 1:
-                    LlistarEscola.llistarEscola();
+                    LlistarEscalador.llistarEscalador();
                     break;
                 case 2:
-                    LlistarSector.llistarSector();
+                    LlistarEscola.llistarEscola();
                     break;
                 case 3:
-                    LlistarVia.llistarVia();
+                    LlistarSector.llistarSector();
                     break;
                 case 4:
-                    LlistarEscalador.llistarEscalador();
+                    LlistarVia.llistarVia();
                     break;
                 case 0:
                     Vista.mostrarMissatge("Tornant al menú principal...\n");

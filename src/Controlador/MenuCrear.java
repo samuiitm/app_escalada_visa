@@ -26,16 +26,16 @@ public class MenuCrear {
 
             switch (opcio) {
                 case 1:
-                    CrearEscola.crearEscola();
+                    CrearEscalador.crearEscalador();
                     break;
                 case 2:
-                    CrearSector.crearSector();
+                    CrearEscola.crearEscola();
                     break;
                 case 3:
-                    CrearVia.crearVia();
+                    CrearSector.crearSector();
                     break;
                 case 4:
-                    CrearEscalador.crearEscalador();
+                    CrearVia.crearVia();
                     break;
                 case 0:
                     Vista.mostrarMissatge("Tornant al menú principal...\n");

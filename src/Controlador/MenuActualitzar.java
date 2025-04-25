@@ -26,16 +26,16 @@ public class MenuActualitzar {
 
             switch (opcio) {
                 case 1:
-                    ActualitzarEscola.actualizarEscola();
+                    ActualitzarEscalador.actualizarEscalador();
                     break;
                 case 2:
-                    ActualitzarSector.actualitzarSector();
+                    ActualitzarEscola.actualizarEscola();
                     break;
                 case 3:
-                    ActualitzarVia.actualitzarVia();
+                    ActualitzarSector.actualitzarSector();
                     break;
                 case 4:
-                    ActualitzarEscalador.actualizarEscalador();
+                    ActualitzarVia.actualitzarVia();
                     break;
                 case 0:
                     Vista.mostrarMissatge("Tornant al menú principal...\n");
