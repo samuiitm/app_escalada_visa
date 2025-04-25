@@ -4,6 +4,7 @@ import Model.Constructors.Sector;
 import Model.DAO.SectorDAO;
 import Vista.Vista;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class LlistarSector {
@@ -15,10 +16,38 @@ public class LlistarSector {
 
         SectorDAO sectorDAO = new SectorDAO();
 
-        int id = sectorDAO.obtenirPerNom(nom);
-        Sector sector = sectorDAO.obtenir(id);
+        List<Sector> sectors = sectorDAO.llistarPerNom(nom);
 
-        if (sector != null) {
+        if (sectors.isEmpty()) {
+            Vista.mostrarMissatge("No s'ha trobat cap sector amb aquest nom.");
+            return;
+        }
+
+        if (sectors.size() > 1) {
+            Vista.mostrarMissatge("Sectors trobats:");
+            for (Sector s : sectors) {
+                Vista.mostrarMissatge("ID: " + s.getIdSector() + " | Nom: " + s.getNom() +
+                        " | Coordenades: " + s.getCoordenades());
+            }
+
+            Vista.mostrarMissatge("Introdueix l'ID del sector que vols veure:");
+            int idSector = Integer.parseInt(scanner.nextLine());
+
+            Sector sector = sectorDAO.obtenir(idSector);
+            if (sector != null) {
+                Vista.mostrarMissatge("Informació del sector:");
+                Vista.mostrarMissatge("Nom: " + sector.getNom());
+                Vista.mostrarMissatge("Coordenades: " + sector.getCoordenades());
+                Vista.mostrarMissatge("Aproximació: " + sector.getAproximacio());
+                Vista.mostrarMissatge("Nombre de vies: " + sector.getNumeroVies());
+                Vista.mostrarMissatge("Popularitat: " + sector.getPopularitat());
+                Vista.mostrarMissatge("Restriccions: " + sector.getRestriccions());
+                Vista.mostrarMissatge("ID Escola: " + sector.getIdEscola());
+            } else {
+                Vista.mostrarMissatge("ID no vàlid.");
+            }
+        } else {
+            Sector sector = sectors.get(0);
             Vista.mostrarMissatge("Informació del sector:");
             Vista.mostrarMissatge("Nom: " + sector.getNom());
             Vista.mostrarMissatge("Coordenades: " + sector.getCoordenades());
@@ -27,8 +56,6 @@ public class LlistarSector {
             Vista.mostrarMissatge("Popularitat: " + sector.getPopularitat());
             Vista.mostrarMissatge("Restriccions: " + sector.getRestriccions());
             Vista.mostrarMissatge("ID Escola: " + sector.getIdEscola());
-        } else {
-            Vista.mostrarMissatge("Sector no trobat.");
         }
     }
 }
