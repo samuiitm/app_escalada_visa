@@ -53,12 +53,24 @@ public class Vista {
 
     public static void mostrarMenuLlistarObjecte() {
         System.out.println("-----------------------------------\n" +
-                "-------- LLISTAR OBJECTE --------\n" +
-                "-----------------------------------\n" +
-                "1.\tEscalador\n" +
-                "2.\tEscola\n" +
-                "3.\tSector\n" +
-                "4.\tVia\n" +
-                "0.\tTornar\n");
+                           "-------- LLISTAR OBJECTE --------\n" +
+                           "-----------------------------------\n" +
+                           "1.\tEscalador\n" +
+                           "2.\tEscola\n" +
+                           "3.\tSector\n" +
+                           "4.\tVia\n" +
+                           "0.\tTornar\n");
     }
+
+    public static void mostrarMenuEliminar() {
+        System.out.println("-----------------------------------\n" +
+                           "----------- ELIMINAR OBJECTE --------\n" +
+                           "-----------------------------------\n" +
+                           "1.\tEscalador\n" +
+                           "2.\tEscola\n" +
+                           "3.\tSector\n" +
+                           "4.\tVia\n" +
+                           "0.\tTornar\n");
+    }
+
 }
