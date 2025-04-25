@@ -23,22 +23,27 @@ public class EliminarVia {
             return;
         }
 
-        Vista.mostrarMissatge("Vies trobades:");
-        for (Via v : vies) {
-            Vista.mostrarMissatge("ID: " + v.getIdVia() + " | Nom: " + v.getNom() +
-                    " | Orientació: " + v.getOrientacio());
+        if (vies.size() > 1) {
+            Vista.mostrarMissatge("Vies trobades:");
+            for (Via v : vies) {
+                Vista.mostrarMissatge("ID: " + v.getIdVia() + " | Nom: " + v.getNom() +
+                        " | Orientació: " + v.getOrientacio());
+            }
+
+            Vista.mostrarMissatge("Introdueix l'ID de la via que vols eliminar:");
+            int idVia = Integer.parseInt(scanner.nextLine());
+
+            boolean trobat = vies.stream().anyMatch(v -> v.getIdVia() == idVia);
+            if (!trobat) {
+                Vista.mostrarMissatge("ID no vàlid.");
+                return;
+            }
+
+            viaDAO.eliminar(idVia);
+        } else {
+            viaDAO.eliminar(vies.get(0).getIdVia());
         }
 
-        Vista.mostrarMissatge("Introdueix l'ID de la via que vols eliminar:");
-        int idVia = Integer.parseInt(scanner.nextLine());
-
-        boolean trobat = vies.stream().anyMatch(v -> v.getIdVia() == idVia);
-        if (!trobat) {
-            Vista.mostrarMissatge("ID no vàlid.");
-            return;
-        }
-
-        viaDAO.eliminar(idVia);
         Vista.mostrarMissatge("Via eliminada correctament.");
     }
 }

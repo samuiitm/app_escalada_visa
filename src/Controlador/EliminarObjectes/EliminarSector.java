@@ -23,22 +23,27 @@ public class EliminarSector {
             return;
         }
 
-        Vista.mostrarMissatge("Sectors trobats:");
-        for (Sector s : sectors) {
-            Vista.mostrarMissatge("ID: " + s.getIdSector() + " | Nom: " + s.getNom() +
-                    " | Coordenades: " + s.getCoordenades());
+        if (sectors.size() > 1) {
+            Vista.mostrarMissatge("Sectors trobats:");
+            for (Sector s : sectors) {
+                Vista.mostrarMissatge("ID: " + s.getIdSector() + " | Nom: " + s.getNom() +
+                        " | Coordenades: " + s.getCoordenades());
+            }
+
+            Vista.mostrarMissatge("Introdueix l'ID del sector que vols eliminar:");
+            int idSector = Integer.parseInt(scanner.nextLine());
+
+            boolean trobat = sectors.stream().anyMatch(s -> s.getIdSector() == idSector);
+            if (!trobat) {
+                Vista.mostrarMissatge("ID no vàlid.");
+                return;
+            }
+
+            sectorDAO.eliminar(idSector);
+        } else {
+            sectorDAO.eliminar(sectors.get(0).getIdSector());
         }
 
-        Vista.mostrarMissatge("Introdueix l'ID del sector que vols eliminar:");
-        int idSector = Integer.parseInt(scanner.nextLine());
-
-        boolean trobat = sectors.stream().anyMatch(s -> s.getIdSector() == idSector);
-        if (!trobat) {
-            Vista.mostrarMissatge("ID no vàlid.");
-            return;
-        }
-
-        sectorDAO.eliminar(idSector);
         Vista.mostrarMissatge("Sector eliminat correctament.");
     }
 }

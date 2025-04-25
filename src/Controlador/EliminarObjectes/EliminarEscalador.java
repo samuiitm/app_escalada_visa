@@ -22,22 +22,26 @@ public class EliminarEscalador {
             return;
         }
 
-        Vista.mostrarMissatge("Escaladors trobats:");
-        for (Escalador e : escaladors) {
-            Vista.mostrarMissatge("ID: " + e.getIdEscalador() + " | Nom: " + e.getNom() +
-                    " | Àlies: " + e.getAlies() + " | Edat: " + e.getEdat());
+        if (escaladors.size() > 1) {
+            Vista.mostrarMissatge("S'han trobat múltiples escaladors amb aquest nom:");
+            for (int i = 0; i < escaladors.size(); i++) {
+                Escalador e = escaladors.get(i);
+                Vista.mostrarMissatge((i + 1) + ". ID: " + e.getIdEscalador() + " | Àlies: " + e.getAlies() + " | Edat: " + e.getEdat());
+            }
+
+            Vista.mostrarMissatge("Selecciona el número de l'escalador que vols eliminar:");
+            int eleccio = Integer.parseInt(scanner.nextLine());
+
+            if (eleccio < 1 || eleccio > escaladors.size()) {
+                Vista.mostrarMissatge("Selecció no vàlida.");
+                return;
+            }
+
+            escaladorDAO.eliminar(escaladors.get(eleccio - 1).getIdEscalador());
+        } else {
+            escaladorDAO.eliminar(escaladors.get(0).getIdEscalador());
         }
 
-        Vista.mostrarMissatge("Introdueix l'ID de l'escalador que vols eliminar:");
-        int idEscalador = Integer.parseInt(scanner.nextLine());
-
-        boolean trobat = escaladors.stream().anyMatch(e -> e.getIdEscalador() == idEscalador);
-        if (!trobat) {
-            Vista.mostrarMissatge("ID no vàlid.");
-            return;
-        }
-
-        escaladorDAO.eliminar(idEscalador);
         Vista.mostrarMissatge("Escalador eliminat correctament.");
     }
 }
