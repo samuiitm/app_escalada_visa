@@ -83,8 +83,7 @@ public class Vista {
                            "4.\tConsultar escoles amb restriccions\n" +
                            "5.\tMostrar sectors amb més de X vies\n" +
                            "6.\tMostrar escaladors amb el mateix nivell màxim\n" +
-                           "7.\tMostrar vies que han passat a 'Apte'\n" +
-                           "8.\tMostrar vies més llargues d'una escola\n" +
+                           "7.\tMostrar vies més llargues d'una escola\n" +
                            "0.\tTornar\n");
     }
 }

@@ -1,22 +1,78 @@
 package Controlador.ConsultesPrecreades;
 
 import Model.ConnexioBD;
+import Model.Constructors.Escola;
+import Model.DAO.EscolaDAO;
 import Vista.Vista;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ConsultesPrecreades {
+    private static Escola seleccionarEscolaPerNom(String nom) {
+        Scanner scanner = new Scanner(System.in);
+        EscolaDAO escolaDAO = new EscolaDAO();
+        List<Escola> escoles = escolaDAO.llistarPerNom(nom);
+
+        if (escoles.isEmpty()) {
+            Vista.mostrarMissatge("No s'ha trobat cap escola amb aquest nom.");
+            return null;
+        } else if (escoles.size() == 1) {
+            return escoles.get(0);
+        } else {
+            Vista.mostrarMissatge("S'han trobat múltiples escoles amb el nom '" + nom + "':");
+            for (Escola escola : escoles) {
+                String ubicacio = obtenirNomLocalitzacio(escola.getIdLocalitzacio());
+                Vista.mostrarMissatge("ID: " + escola.getIdEscola() + " | Nom: " + escola.getNom() + " | Ubicació: " + ubicacio);
+            }
+
+            Vista.mostrarMissatge("Introdueix l'ID de l'escola que vols seleccionar:");
+            int idSeleccionat = Integer.parseInt(scanner.nextLine());
+
+            for (Escola escola : escoles) {
+                if (escola.getIdEscola() == idSeleccionat) {
+                    return escola;
+                }
+            }
+
+            Vista.mostrarMissatge("ID introduït no vàlid.");
+            return null;
+        }
+    }
+
+    private static String obtenirNomLocalitzacio(int idLocalitzacio) {
+        String sql = "SELECT nom FROM localitzacions WHERE id_localitzacio = ?";
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idLocalitzacio);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getString("nom");
+            } else {
+                return "Localització descsoneguda";
+            }
+        } catch (SQLException e) {
+            Vista.mostrarMissatge("Error en obtenir la localització: " + e.getMessage());
+            return "Localització desconeguda";
+        }
+    }
+
     public static void mostrarViesEscolaDisponible(String nomEscola) {
+        Escola escolaSeleccionada = seleccionarEscolaPerNom(nomEscola);
+        if (escolaSeleccionada == null) return;
+
         String sql = "SELECT v.id_via, v.nom, v.estat FROM vies v " +
                 "JOIN sectors s ON v.id_sector = s.id_sector " +
                 "JOIN escoles e ON s.id_escola = e.id_escola " +
-                "WHERE e.nom = ? AND v.estat = 'Apte'";
+                "WHERE e.id_escola = ? AND v.estat = 'Apte'";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, nomEscola);
+            stmt.setInt(1, escolaSeleccionada.getIdEscola());
             ResultSet rs = stmt.executeQuery();
 
             List<String> vies = new ArrayList<>();
@@ -28,7 +84,7 @@ public class ConsultesPrecreades {
             if (vies.isEmpty()) {
                 Vista.mostrarMissatge("No hi ha vies disponibles per a l'escola amb el nom: " + nomEscola + ".");
             } else {
-                Vista.mostrarMissatge("Vies disponibles a l'escola " + nomEscola + ":");
+                Vista.mostrarMissatge("Vies disponibles a l'escola " + escolaSeleccionada.getNom() + ":");
                 for (String via : vies) {
                     Vista.mostrarMissatge(via);
                 }
@@ -181,17 +237,20 @@ public class ConsultesPrecreades {
     }
 
     public static void mostrarViesMesLlarguesEscola(String nomEscola) {
+        Escola escolaSeleccionada = seleccionarEscolaPerNom(nomEscola);
+        if (escolaSeleccionada == null) return;
+
         String sql = "SELECT v.id_via, v.nom, SUM(t.llargada) AS llargada_total FROM vies v " +
-                     "JOIN trams t ON v.id_via = t.id_via " +
-                     "JOIN sectors s ON v.id_sector = s.id_sector " +
-                     "JOIN escoles e ON s.id_escola = e.id_escola " +
-                     "WHERE e.nom = ? " +
-                     "GROUP BY v.id_via ORDER BY llargada_total DESC";
+                "JOIN trams t ON v.id_via = t.id_via " +
+                "JOIN sectors s ON v.id_sector = s.id_sector " +
+                "JOIN escoles e ON s.id_escola = e.id_escola " +
+                "WHERE e.id_escola = ? " +
+                "GROUP BY v.id_via ORDER BY llargada_total DESC";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, nomEscola);
+            stmt.setInt(1, escolaSeleccionada.getIdEscola());
             ResultSet rs = stmt.executeQuery();
 
             List<String> vies = new ArrayList<>();
@@ -203,7 +262,7 @@ public class ConsultesPrecreades {
             if (vies.isEmpty()) {
                 Vista.mostrarMissatge("No hi ha vies llargues per a l'escola amb el nom: " + nomEscola + ".");
             } else {
-                Vista.mostrarMissatge("Vies més llargues de l'escola " + nomEscola + ":");
+                Vista.mostrarMissatge("Vies més llargues de l'escola " + escolaSeleccionada.getNom() + ":");
                 for (String via : vies) {
                     Vista.mostrarMissatge(via);
                 }
