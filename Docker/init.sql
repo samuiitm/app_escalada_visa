@@ -32,7 +32,7 @@ CREATE TABLE escoles (
     nom					VARCHAR(30),
 	id_localitzacio		INT UNSIGNED	COMMENT "Ciutat, Regió, CP",
     aproximacio			VARCHAR(120) 	COMMENT "Descripció de com arribar",
-    numero_vies			TINYINT 		COMMENT "Número de vies de té l'escola",
+    numero_vies			INT UNSIGNED 	COMMENT "Número de vies de té l'escola",
     popularitat			ENUM('Baixa','Mitjana','Alta'),
     restriccions		VARCHAR(150) 	COMMENT "Prohibicions en casos especials",
     CONSTRAINT pk_escoles PRIMARY KEY (id_escola),
@@ -102,6 +102,16 @@ CREATE TABLE vies (
     id_sector           INT UNSIGNED			COMMENT "(FK sectors)",
     creador        		INT UNSIGNED 			COMMENT "(FK escaladors)",
     CONSTRAINT pk_vies PRIMARY KEY (id_via)
+);
+
+CREATE TABLE historial_estats_vies (
+    id INT UNSIGNED AUTO_INCREMENT,
+    id_via INT UNSIGNED,
+    estat_previ ENUM('Apte', 'Construcció', 'Tancada'),
+    estat_actual ENUM('Apte', 'Construcció', 'Tancada'),
+    data_canvi DATE,
+    PRIMARY KEY(id),
+    FOREIGN KEY (id_via) REFERENCES vies(id_via)
 );
 
 ALTER TABLE escaladors

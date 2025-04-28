@@ -151,7 +151,7 @@ public class EscolaDAO implements CRUD<Escola> {
         return id;
     }
 
-    public List<Escola> llistarPerNom(String nom) {
+    public static List<Escola> llistarPerNom(String nom) {
         List<Escola> escoles = new ArrayList<>();
         try {
             Connection conn = ConnexioBD.getConnexio();

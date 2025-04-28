@@ -163,7 +163,7 @@ public class SectorDAO implements CRUD<Sector> {
         return id;
     }
 
-    public List<Sector> llistarPerNom(String nom) {
+    public static List<Sector> llistarPerNom(String nom) {
         List<Sector> sectors = new ArrayList<>();
         try {
             Connection conn = ConnexioBD.getConnexio();

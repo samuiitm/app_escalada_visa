@@ -16,7 +16,7 @@ public class LlistarSector {
 
         SectorDAO sectorDAO = new SectorDAO();
 
-        List<Sector> sectors = sectorDAO.llistarPerNom(nom);
+        List<Sector> sectors = SectorDAO.llistarPerNom(nom);
 
         if (sectors.isEmpty()) {
             Vista.mostrarMissatge("No s'ha trobat cap sector amb aquest nom.");

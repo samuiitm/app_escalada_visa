@@ -49,6 +49,7 @@ public class Main {
 
                 // CAS 6: CONSULTES PRECREADES
                 case 6:
+                    MenuConsultes.menuConsultes();
                     break;
 
                 // CAS DEFAULT

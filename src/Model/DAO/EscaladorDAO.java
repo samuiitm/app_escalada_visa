@@ -4,14 +4,11 @@ import Model.ConnexioBD;
 import Model.Constructors.Escalador;
 import Model.Exceptions.NoExisteix;
 import Model.Interfaces.CRUD;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EscaladorDAO implements CRUD<Escalador> {
-    private Connection connection;
-
     @Override
     public void inserir(Escalador escalador) {
         String sql = "INSERT INTO escaladors (nom, alies, edat, nivell_maxim, via_nivell_max, estil_preferit) VALUES (?, ?, ?, ?, ?, ?)";
@@ -159,7 +156,7 @@ public class EscaladorDAO implements CRUD<Escalador> {
         return id;
     }
 
-    public List<Escalador> llistarPerNom(String nom) {
+    public static List<Escalador> llistarPerNom(String nom) {
         List<Escalador> escaladors = new ArrayList<>();
         try {
             Connection conn = ConnexioBD.getConnexio();

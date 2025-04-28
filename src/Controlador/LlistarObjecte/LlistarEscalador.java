@@ -16,7 +16,7 @@ public class LlistarEscalador {
 
         EscaladorDAO escaladorDAO = new EscaladorDAO();
 
-        List<Escalador> escaladors = escaladorDAO.llistarPerNom(nom);
+        List<Escalador> escaladors = EscaladorDAO.llistarPerNom(nom);
 
         if (escaladors.isEmpty()) {
             Vista.mostrarMissatge("No s'ha trobat cap escalador amb aquest nom.");

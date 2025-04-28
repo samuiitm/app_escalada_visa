@@ -16,7 +16,7 @@ public class LlistarVia {
 
         ViaDAO viaDAO = new ViaDAO();
 
-        List<Via> vies = viaDAO.llistarPerNom(nom);
+        List<Via> vies = ViaDAO.llistarPerNom(nom);
 
         if (vies.isEmpty()) {
             System.out.println("No s'ha trobat cap via amb aquest nom.");

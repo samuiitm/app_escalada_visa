@@ -11,12 +11,11 @@ import java.util.Scanner;
 public class ActualitzarEscola {
     public static void actualizarEscola() {
         Scanner scanner = new Scanner(System.in);
-        EscolaDAO escolaDAO = new EscolaDAO();
 
         Vista.mostrarMissatge("Introdueix el nom de l'escola que vols actualitzar:");
         String nom = scanner.nextLine();
 
-        List<Escola> escoles = escolaDAO.llistarPerNom(nom);
+        List<Escola> escoles = EscolaDAO.llistarPerNom(nom);
 
         if (escoles.isEmpty()) {
             Vista.mostrarMissatge("No s'ha trobat cap escola amb aquest nom.");

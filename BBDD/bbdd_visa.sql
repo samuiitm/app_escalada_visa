@@ -14,7 +14,7 @@ CREATE TABLE escaladors (
     estil_preferit	ENUM('Esportiva','Clàssica','Gel'),
     /*
     historial		VARCHAR(120),
-    fita			VARCHAR(100), 
+    fita			VARCHAR(100),
     */
     CONSTRAINT pk_escaladors PRIMARY KEY (id_escalador)
 );
@@ -32,12 +32,12 @@ CREATE TABLE escoles (
     nom					VARCHAR(30),
 	id_localitzacio		INT UNSIGNED	COMMENT "Ciutat, Regió, CP",
     aproximacio			VARCHAR(120) 	COMMENT "Descripció de com arribar",
-    numero_vies			TINYINT 		COMMENT "Número de vies de té l'escola",
+    numero_vies			INT UNSIGNED 	COMMENT "Número de vies de té l'escola",
     popularitat			ENUM('Baixa','Mitjana','Alta'),
     restriccions		VARCHAR(150) 	COMMENT "Prohibicions en casos especials",
     CONSTRAINT pk_escoles PRIMARY KEY (id_escola),
     CONSTRAINT fk_escoles_poblacions FOREIGN KEY (id_localitzacio)
-		REFERENCES localitzacions(id_localitzacio)
+		REFERENCES localitzacions(id_localitzacio),
     CONSTRAINT uk_escoles_nom UNIQUE (nom)
 );
 
@@ -104,17 +104,27 @@ CREATE TABLE vies (
     CONSTRAINT pk_vies PRIMARY KEY (id_via)
 );
 
+CREATE TABLE historial_estats_vies (
+    id INT UNSIGNED AUTO_INCREMENT,
+    id_via INT UNSIGNED,
+    estat_previ ENUM('Apte', 'Construcció', 'Tancada'),
+    estat_actual ENUM('Apte', 'Construcció', 'Tancada'),
+    data_canvi DATE,
+    PRIMARY KEY(id),
+    FOREIGN KEY (id_via) REFERENCES vies(id_via)
+);
+
 ALTER TABLE escaladors
 	ADD CONSTRAINT fk_escaladors_vies FOREIGN KEY (via_nivell_max)
 		REFERENCES vies(id_via);
-        
-ALTER TABLE trams 
+
+ALTER TABLE trams
 	ADD CONSTRAINT fk_trams_vies FOREIGN KEY (id_via)
 		REFERENCES vies(id_via),
 	ADD CONSTRAINT fk_trams_dificultat FOREIGN KEY (id_dificultat)
 		REFERENCES dificultats(id_dificultat);
 
-ALTER TABLE vies 
+ALTER TABLE vies
 	ADD CONSTRAINT fk_vies_tipus_via FOREIGN KEY (id_tipus_via)
 		REFERENCES tipus_vies(id_tipus_via),
     ADD CONSTRAINT fk_vies_ancoratges FOREIGN KEY (id_ancoratge)

@@ -16,7 +16,7 @@ public class EliminarSector {
         Vista.mostrarMissatge("Introdueix el nom del sector que vols eliminar:");
         String nom = scanner.nextLine();
 
-        List<Sector> sectors = sectorDAO.llistarPerNom(nom);
+        List<Sector> sectors = SectorDAO.llistarPerNom(nom);
 
         if (sectors.isEmpty()) {
             Vista.mostrarMissatge("No s'ha trobat cap sector amb aquest nom.");

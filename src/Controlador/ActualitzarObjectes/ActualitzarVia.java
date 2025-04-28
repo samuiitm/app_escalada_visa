@@ -12,13 +12,11 @@ import java.util.Scanner;
 public class ActualitzarVia {
     public static void actualitzarVia() {
         Scanner scanner = new Scanner(System.in);
-        ViaDAO viaDAO = new ViaDAO();
-        SectorDAO sectorDAO = new SectorDAO();
 
         Vista.mostrarMissatge("Introdueix el nom de la via que vols actualitzar:");
         String nom = scanner.nextLine();
 
-        List<Via> vies = viaDAO.llistarPerNom(nom);
+        List<Via> vies = ViaDAO.llistarPerNom(nom);
 
         if (vies.isEmpty()) {
             Vista.mostrarMissatge("No s'ha trobat cap via amb aquest nom.");

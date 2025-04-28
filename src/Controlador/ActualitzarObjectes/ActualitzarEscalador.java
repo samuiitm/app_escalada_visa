@@ -12,13 +12,12 @@ import java.util.Scanner;
 public class ActualitzarEscalador {
     public static void actualizarEscalador() {
         Scanner scanner = new Scanner(System.in);
-        EscaladorDAO escaladorDAO = new EscaladorDAO();
         ViaDAO viaDAO = new ViaDAO();
 
         Vista.mostrarMissatge("Introdueix el nom de l'escalador que vols actualitzar:");
         String nom = scanner.nextLine();
 
-        List<Escalador> escaladors = escaladorDAO.llistarPerNom(nom);
+        List<Escalador> escaladors = EscaladorDAO.llistarPerNom(nom);
 
         if (escaladors.isEmpty()) {
             Vista.mostrarMissatge("No s'ha trobat cap escalador amb aquest nom.");

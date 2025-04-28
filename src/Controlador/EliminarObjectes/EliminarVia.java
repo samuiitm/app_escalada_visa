@@ -16,7 +16,7 @@ public class EliminarVia {
         Vista.mostrarMissatge("Introdueix el nom de la via que vols eliminar:");
         String nom = scanner.nextLine();
 
-        List<Via> vies = viaDAO.llistarPerNom(nom);
+        List<Via> vies = ViaDAO.llistarPerNom(nom);
 
         if (vies.isEmpty()) {
             Vista.mostrarMissatge("No s'ha trobat cap via amb aquest nom.");

@@ -16,7 +16,7 @@ public class LlistarEscola {
 
         EscolaDAO escolaDAO = new EscolaDAO();
 
-        List<Escola> escoles = escolaDAO.llistarPerNom(nom);
+        List<Escola> escoles = EscolaDAO.llistarPerNom(nom);
 
         if (escoles.isEmpty()) {
             Vista.mostrarMissatge("No s'ha trobat cap escola amb aquest nom.");

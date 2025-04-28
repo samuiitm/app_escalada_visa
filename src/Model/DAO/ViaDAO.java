@@ -170,7 +170,7 @@ public class ViaDAO implements CRUD<Via> {
         return id;
     }
 
-    public List<Via> llistarPerNom(String nom) {
+    public static List<Via> llistarPerNom(String nom) {
         List<Via> vies = new ArrayList<>();
         try {
             Connection conn = ConnexioBD.getConnexio();

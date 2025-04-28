@@ -16,7 +16,7 @@ public class EliminarEscola {
         Vista.mostrarMissatge("Introdueix el nom de l'escola que vols eliminar:");
         String nom = scanner.nextLine();
 
-        List<Escola> escoles = escolaDAO.llistarPerNom(nom);
+        List<Escola> escoles = EscolaDAO.llistarPerNom(nom);
 
         if (escoles.isEmpty()) {
             Vista.mostrarMissatge("No s'ha trobat cap escola amb aquest nom.");

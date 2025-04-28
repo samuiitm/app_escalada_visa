@@ -12,13 +12,12 @@ import java.util.Scanner;
 public class ActualitzarSector {
     public static void actualitzarSector() {
         Scanner scanner = new Scanner(System.in);
-        SectorDAO sectorDAO = new SectorDAO();
         EscolaDAO escolaDAO = new EscolaDAO();
 
         Vista.mostrarMissatge("Introdueix el nom del sector que vols actualitzar:");
         String nom = scanner.nextLine();
 
-        List<Sector> sectors = sectorDAO.llistarPerNom(nom);
+        List<Sector> sectors = SectorDAO.llistarPerNom(nom);
 
         if (sectors.isEmpty()) {
             Vista.mostrarMissatge("No s'ha trobat cap sector amb aquest nom.");
