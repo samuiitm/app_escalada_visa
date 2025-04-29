@@ -77,7 +77,7 @@ public class ViaDAO implements CRUD<Via> {
     @Override
     public List<Via> llistarTots() {
         List<Via> llista = new ArrayList<>();
-        String sql = "SELECT * FROM vias";
+        String sql = "SELECT * FROM vies";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql);
