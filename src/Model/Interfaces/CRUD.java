@@ -9,4 +9,5 @@ public interface CRUD<T> {
     void actualitzar(T obj);
     void eliminar(int id);
     int obtenirPerNom(String nom);
+    String obtenirPerNom(int id);
 }
