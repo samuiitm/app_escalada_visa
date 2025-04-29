@@ -174,7 +174,7 @@ public class ViaDAO implements CRUD<Via> {
         List<Via> vies = new ArrayList<>();
         try {
             Connection conn = ConnexioBD.getConnexio();
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Via WHERE nom = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM vies WHERE nom = ?");
             ps.setString(1, nom);
             ResultSet rs = ps.executeQuery();
 
