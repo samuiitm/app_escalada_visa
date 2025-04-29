@@ -170,6 +170,28 @@ public class ViaDAO implements CRUD<Via> {
         return id;
     }
 
+    @Override
+    public String obtenirPerId(int id) throws NoExisteix {
+        String nomVia = null;
+        String sql = "SELECT nom FROM vies WHERE id_via = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomVia = rs.getString("nom");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomVia;
+    }
+
     public static List<Via> llistarPerNom(String nom) {
         List<Via> vies = new ArrayList<>();
         try {

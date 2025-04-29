@@ -135,4 +135,26 @@ public class TipusViaDAO implements CRUD<Tipus_Via> {
 
         return id;
     }
+
+    @Override
+    public String obtenirPerId(int id) throws NoExisteix {
+        String nomTipusVia = null;
+        String sql = "SELECT nom FROM tipus_via WHERE id_tipus_via = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomTipusVia = rs.getString("nom");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomTipusVia;
+    }
 }

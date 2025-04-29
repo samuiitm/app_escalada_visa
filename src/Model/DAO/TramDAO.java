@@ -144,4 +144,25 @@ public class TramDAO implements CRUD<Tram> {
 
         return id;
     }
+    @Override
+    public String obtenirPerId(int id) throws NoExisteix {
+        String nomTram = null;
+        String sql = "SELECT nom FROM trams WHERE id_tram = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomTram = rs.getString("nom");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomTram;
+    }
 }

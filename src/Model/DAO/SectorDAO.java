@@ -163,6 +163,28 @@ public class SectorDAO implements CRUD<Sector> {
         return id;
     }
 
+    @Override
+    public String obtenirPerId(int id) throws NoExisteix {
+        String nomSector = null;
+        String sql = "SELECT nom FROM sectors WHERE id_sector = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomSector = rs.getString("nom");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomSector;
+    }
+
     public static List<Sector> llistarPerNom(String nom) {
         List<Sector> sectors = new ArrayList<>();
         try {

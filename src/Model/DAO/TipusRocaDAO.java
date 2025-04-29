@@ -135,4 +135,26 @@ public class TipusRocaDAO implements CRUD<Tipus_Roca> {
 
         return id;
     }
+
+    @Override
+    public String obtenirPerId(int id) throws NoExisteix {
+        String nomTipusRoca = null;
+        String sql = "SELECT nom FROM tipus_roca WHERE id_tipus_roca = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomTipusRoca = rs.getString("nom");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomTipusRoca;
+    }
 }
