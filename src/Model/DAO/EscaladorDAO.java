@@ -183,4 +183,28 @@ public class EscaladorDAO implements CRUD<Escalador> {
         }
         return escaladors;
     }
+
+    @Override
+    public String obtenirPerId(int id) throws NoExisteix {
+        String nomEscalador = null;
+        String sql = "SELECT nom FROM escaladors WHERE id_escalador = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomEscalador = rs.getString("nom");
+            } else {
+                throw new NoExisteix("No existeix cap ancoratge amb l'id: " + id);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomEscalador;
+    }
 }

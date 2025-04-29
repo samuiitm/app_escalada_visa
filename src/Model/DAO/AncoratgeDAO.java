@@ -135,4 +135,28 @@ public class AncoratgeDAO implements CRUD<Ancoratge> {
 
         return id;
     }
+
+    @Override
+    public String obtenirPerId(int id) throws NoExisteix {
+        String nomAncoratge = null;
+        String sql = "SELECT nom FROM ancoratges WHERE id_ancoratge = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomAncoratge = rs.getString("nom");
+            } else {
+                throw new NoExisteix("No existeix cap ancoratge amb l'id: " + id);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomAncoratge;
+    }
 }

@@ -145,5 +145,29 @@ public class LocalitzacioDAO implements CRUD<Localitzacio> {
 
         return id;
     }
+
+    @Override
+    public String obtenirPerId(int id) throws NoExisteix {
+        String nomLocalitzacio = null;
+        String sql = "SELECT ciutat FROM localitzacions WHERE id_localitzacio = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomLocalitzacio = rs.getString("nom");
+            } else {
+                throw new NoExisteix("No existeix cap ancoratge amb l'id: " + id);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomLocalitzacio;
+    }
 }
 

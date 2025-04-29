@@ -135,4 +135,28 @@ public class DificultatDAO implements CRUD<Dificultat> {
 
         return id;
     }
+
+    @Override
+    public String obtenirPerId(int id) throws NoExisteix {
+        String nomDificultat = null;
+        String sql = "SELECT nom FROM dificultats WHERE id_dificultat = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomDificultat = rs.getString("nom");
+            } else {
+                throw new NoExisteix("No existeix cap ancoratge amb l'id: " + id);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomDificultat;
+    }
 }

@@ -135,4 +135,28 @@ public class MaterialDAO implements CRUD<Material> {
 
         return id;
     }
+
+    @Override
+    public String obtenirPerId(int id) throws NoExisteix {
+        String nomMaterial = null;
+        String sql = "SELECT nom FROM materials WHERE id_material = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomMaterial = rs.getString("nom");
+            } else {
+                throw new NoExisteix("No existeix cap ancoratge amb l'id: " + id);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomMaterial;
+    }
 }

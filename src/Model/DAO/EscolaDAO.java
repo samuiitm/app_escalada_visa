@@ -178,4 +178,28 @@ public class EscolaDAO implements CRUD<Escola> {
         }
         return escoles;
     }
+
+    @Override
+    public String obtenirPerId(int id) throws NoExisteix {
+        String nomEscola = null;
+        String sql = "SELECT nom FROM escoles WHERE id_escola = ?";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nomEscola = rs.getString("nom");
+            } else {
+                throw new NoExisteix("No existeix cap ancoratge amb l'id: " + id);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nomEscola;
+    }
 }
