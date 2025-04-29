@@ -2,6 +2,7 @@ package Controlador.LlistarObjecte;
 
 import Model.Constructors.Escalador;
 import Model.DAO.EscaladorDAO;
+import Model.DAO.ViaDAO;
 import Vista.Vista;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class LlistarEscalador {
         String nom = scanner.nextLine();
 
         EscaladorDAO escaladorDAO = new EscaladorDAO();
+        ViaDAO viaDAO = new ViaDAO();
 
         List<Escalador> escaladors = EscaladorDAO.llistarPerNom(nom);
 
@@ -26,7 +28,7 @@ public class LlistarEscalador {
         if (escaladors.size() > 1) {
             Vista.mostrarMissatge("Escaladors trobats:");
             for (Escalador e : escaladors) {
-                Vista.mostrarMissatge("ID: " + e.getIdEscalador() + " | Nom: " + e.getNom() +
+                Vista.mostrarMissatge("ID: " + escaladorDAO.obtenirPerId(e.getIdEscalador()) + " | Nom: " + e.getNom() +
                         " | Àlies: " + e.getAlies() + " | Edat: " + e.getEdat());
             }
 
@@ -40,7 +42,7 @@ public class LlistarEscalador {
                 Vista.mostrarMissatge("Àlies: " + escalador.getAlies());
                 Vista.mostrarMissatge("Edat: " + escalador.getEdat());
                 Vista.mostrarMissatge("Nivell màxim: " + escalador.getNivellMaxim());
-                Vista.mostrarMissatge("ID de la via més difícil: " + escalador.getViaNivellMaxim());
+                Vista.mostrarMissatge("ID de la via més difícil: " + viaDAO.obtenirPerId(escalador.getViaNivellMaxim()));
                 Vista.mostrarMissatge("Estil preferit: " + escalador.getEstilPreferit());
             } else {
                 Vista.mostrarMissatge("ID no vàlid.");
@@ -52,7 +54,7 @@ public class LlistarEscalador {
             Vista.mostrarMissatge("Àlies: " + escalador.getAlies());
             Vista.mostrarMissatge("Edat: " + escalador.getEdat());
             Vista.mostrarMissatge("Nivell màxim: " + escalador.getNivellMaxim());
-            Vista.mostrarMissatge("ID de la via més difícil: " + escalador.getViaNivellMaxim());
+            Vista.mostrarMissatge("ID de la via més difícil: " + viaDAO.obtenirPerId(escalador.getViaNivellMaxim()));
             Vista.mostrarMissatge("Estil preferit: " + escalador.getEstilPreferit());
         }
     }

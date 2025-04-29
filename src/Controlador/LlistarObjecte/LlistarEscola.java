@@ -2,6 +2,7 @@ package Controlador.LlistarObjecte;
 
 import Model.Constructors.Escola;
 import Model.DAO.EscolaDAO;
+import Model.DAO.LocalitzacioDAO;
 import Vista.Vista;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class LlistarEscola {
         String nom = scanner.nextLine();
 
         EscolaDAO escolaDAO = new EscolaDAO();
+        LocalitzacioDAO localitzacioDAO = new LocalitzacioDAO();
 
         List<Escola> escoles = EscolaDAO.llistarPerNom(nom);
 
@@ -27,7 +29,7 @@ public class LlistarEscola {
             Vista.mostrarMissatge("Escoles trobades:");
             for (Escola e : escoles) {
                 Vista.mostrarMissatge("ID: " + e.getIdEscola() + " | Nom: " + e.getNom() +
-                        " | Localització: " + e.getIdLocalitzacio());
+                        " | Localització: " + escolaDAO.obtenirPerId(e.getIdLocalitzacio()));
             }
 
             Vista.mostrarMissatge("Introdueix l'ID de l'escola que vols veure:");
@@ -37,7 +39,7 @@ public class LlistarEscola {
             if (escola != null) {
                 Vista.mostrarMissatge("Informació de l'escola:");
                 Vista.mostrarMissatge("Nom: " + escola.getNom());
-                Vista.mostrarMissatge("ID Localització: " + escola.getIdLocalitzacio());
+                Vista.mostrarMissatge("ID Localització: " + localitzacioDAO.obtenirPerId(escola.getIdLocalitzacio()));
                 Vista.mostrarMissatge("Aproximació: " + escola.getAproximacio());
                 Vista.mostrarMissatge("Nombre de vies: " + escola.getNumeroVies());
                 Vista.mostrarMissatge("Popularitat: " + escola.getPopularitat());
@@ -49,7 +51,7 @@ public class LlistarEscola {
             Escola escola = escoles.get(0);
             Vista.mostrarMissatge("Informació de l'escola:");
             Vista.mostrarMissatge("Nom: " + escola.getNom());
-            Vista.mostrarMissatge("ID Localització: " + escola.getIdLocalitzacio());
+            Vista.mostrarMissatge("ID Localització: " + localitzacioDAO.obtenirPerId(escola.getIdLocalitzacio()));
             Vista.mostrarMissatge("Aproximació: " + escola.getAproximacio());
             Vista.mostrarMissatge("Nombre de vies: " + escola.getNumeroVies());
             Vista.mostrarMissatge("Popularitat: " + escola.getPopularitat());
