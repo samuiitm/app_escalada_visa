@@ -99,14 +99,14 @@ INSERT INTO escaladors (nom, alies, edat, nivell_maxim, via_nivell_max, estil_pr
 
 -- HISTORIAL_ESTATS_VIES
 INSERT INTO historial_estats_vies (id_via, estat_previ, estat_actual, data_canvi) VALUES
-(1, 'Construcció', 'Apte', '2024-03-01'), (2, 'Apte', 'Tancada', '2024-04-10'), (3, 'Tancada', 'Apte', '2024-02-20'),
+(1, 'Construcció', 'Apte', '2025-04-07'), (2, 'Apte', 'Tancada', '2024-04-10'), (3, 'Tancada', 'Apte', '2024-02-20'),
 (4, 'Construcció', 'Apte', '2024-03-15'), (5, 'Apte', 'Construcció', '2024-04-05'), (6, 'Apte', 'Tancada', '2024-05-02'),
 (7, 'Tancada', 'Apte', '2024-02-27'), (8, 'Construcció', 'Apte', '2024-03-22'), (9, 'Apte', 'Apte', '2024-03-30'),
-(10, 'Tancada', 'Apte', '2024-04-12'), (11, 'Construcció', 'Apte', '2024-04-01'), (12, 'Apte', 'Tancada', '2024-03-25'),
+(10, 'Tancada', 'Apte', '2024-04-12'), (11, 'Construcció', 'Apte', '2025-04-03'), (12, 'Apte', 'Tancada', '2024-03-25'),
 (13, 'Apte', 'Apte', '2024-03-05'), (14, 'Tancada', 'Apte', '2024-02-28'), (15, 'Apte', 'Construcció', '2024-03-15'),
 (16, 'Apte', 'Apte', '2024-04-20'), (17, 'Construcció', 'Apte', '2024-03-18'), (18, 'Apte', 'Tancada', '2024-04-07'),
 (19, 'Tancada', 'Apte', '2024-03-30'), (20, 'Apte', 'Apte', '2024-04-10'), (21, 'Construcció', 'Apte', '2024-03-01'),
-(22, 'Apte', 'Apte', '2024-04-05'), (23, 'Tancada', 'Apte', '2024-02-24'), (24, 'Apte', 'Construcció', '2024-04-15'),
+(22, 'Apte', 'Apte', '2024-04-05'), (23, 'Tancada', 'Apte', '2025-04-29'), (24, 'Apte', 'Construcció', '2024-04-15'),
 (25, 'Apte', 'Tancada', '2024-04-03'), (26, 'Construcció', 'Apte', '2024-03-20'), (27, 'Apte', 'Apte', '2024-03-10'),
 (28, 'Tancada', 'Apte', '2024-02-18'), (29, 'Apte', 'Construcció', '2024-03-05'), (30, 'Apte', 'Apte', '2024-03-30');
 
