@@ -26,11 +26,11 @@ INSERT INTO dificultats (nom) VALUES
 INSERT INTO sectors (nom, coordenades, aproximacio, numero_vies, popularitat, restriccions, id_escola) VALUES
 ('El Pati', '41.2610, 0.9610', 'Pista de terra 15 minuts a peu', 50, 'Alta', 'Respectar senyalització.', 2),
 ('La Cova Gran', '42.0065, 0.8755', 'Accés des de Vilanova de Meià', 30, 'Alta', 'Prohibit en època d''aus.', 8),
-('Can Jorba', '41.6090, 1.8365', 'Sender marcat 10 minuts', 20, 'Mitjana', 'Cap restricció.', 3),
+('Can Jorba', '41.6090, 1.8365', 'Sender marcat 10 minuts', 20, 'Mitjana', 'Cap', 3),
 ('Racó del Boix', '41.2210, 0.8450', 'Pista forestal i 5 min caminant', 15, 'Baixa', 'Tancat a l''hivern.', 1),
 ('Savassona Bloc', '41.9290, 2.3150', '5 min des de l''aparcament', 25, 'Baixa', 'Només bloc.', 9),
 ('El Vermell', '41.6170, 1.8320', 'Sender marcat 20 minuts', 40, 'Alta', 'Zones de nidificació.', 3),
-('L''Estació', '41.5920, 0.9565', 'Accés curt des de la carretera', 35, 'Mitjana', 'Sense restriccions.', 4),
+('L''Estació', '41.5920, 0.9565', 'Accés curt des de la carretera', 35, 'Mitjana', 'Cap', 4),
 ('La Palomera', '41.7010, 2.8440', 'Caminet des del pàrquing', 10, 'Baixa', 'Cap', 5),
 ('Font Freda', '42.0030, 0.8670', 'Pista ampla', 12, 'Baixa', 'Accés restringit si plou.', 8),
 ('El Balcó', '41.6230, 1.6700', '15 min pujant', 18, 'Mitjana', 'Respectar flora.', 7);
@@ -41,7 +41,7 @@ INSERT INTO escoles (nom, id_localitzacio, aproximacio, numero_vies, popularitat
 ('Siurana', 6, 'Pista forestal des de Cornudella', 250, 'Alta', 'Respectar camins senyalitzats.'),
 ('Montserrat Nord', 9, 'Accés des de Monistrol', 180, 'Mitjana', 'Zones restringides temporals.'),
 ('Sadernes', 2, 'Pista des de Sadernes fins el refugi', 90, 'Mitjana', 'Prohibit en èpoques de sequera extrema.'),
-('Roc de Sant Gaietà', 7, 'A peu des de la platja', 30, 'Baixa', 'Sense restriccions.'),
+('Roc de Sant Gaietà', 7, 'A peu des de la platja', 30, 'Baixa', 'Cap'),
 ('Penyal d''Ifac', 1, 'Accés pel Parc Natural', 70, 'Alta', 'Cal permís especial.'),
 ('La Riba', 6, 'Accés a peu des del poble', 40, 'Mitjana', 'Atenció a les riuades.'),
 ('Vilanova de Meià', 8, 'Camí des de la pista forestal', 150, 'Alta', 'Zones protegides per aus.'),
@@ -63,7 +63,7 @@ INSERT INTO trams (id_via, id_dificultat, llargada) VALUES
 (41, 17, 35), (42, 18, 36), (43, 14, 30), (44, 11, 26), (45, 19, 39), (46, 13, 24), (47, 16, 33), (48, 15, 27), (49, 10, 25), (50, 12, 30),
 (51, 19, 37), (52, 17, 32), (53, 14, 29), (54, 16, 31), (55, 11, 28), (56, 18, 38), (57, 13, 26), (58, 15, 27), (59, 10, 24), (60, 12, 31);
 
--- VIES
+-º- VIES
 INSERT INTO vies (nom, id_tipus_via, estat, orientacio, id_ancoratge, id_tipus_roca, id_material, id_sector, creador) VALUES
 ('Somni Vertical', 1, 'Apte', 'S', 6, 3, 1, 1, 1),
 ('Llum d’Estiu', 1, 'Apte', 'E', 7, 1, 2, 2, 2),
