@@ -236,6 +236,40 @@ public class ConsultesPrecreades {
         }
     }
 
+    public static void mostrarViesAptesRecentment() {
+        String sql = "SELECT DISTINCT v.id_via, v.nom, h.data_canvi " +
+                     "FROM historial_estats_vies h " +
+                     "JOIN vies v ON h.id_via = v.id_via " +
+                     "WHERE h.estat_actual = 'Apte' " +
+                     "AND h.estat_previ <> 'Apte' " +
+                     "AND h.data_canvi >= CURDATE() - INTERVAL 3 MONTH";
+
+        try (Connection conn = ConnexioBD.getConnexio();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            ResultSet rs = stmt.executeQuery();
+            List<String> vies = new ArrayList<>();
+
+            while (rs.next()) {
+                vies.add("ID: " + rs.getInt("id_via") +
+                        " | Nom: " + rs.getString("nom") +
+                        " | Data de canvi: " + rs.getDate("data_canvi"));
+            }
+
+            if (vies.isEmpty()) {
+                Vista.mostrarMissatge("No hi ha vies que hagin canviat a 'Apte' en els últims 3 mesos.");
+            } else {
+                Vista.mostrarMissatge("Vies que han passat a 'Apte' recentment:");
+                for (String via : vies) {
+                    Vista.mostrarMissatge(via);
+                }
+            }
+
+        } catch (SQLException e) {
+            Vista.mostrarMissatge("Error a la consulta: " + e.getMessage());
+        }
+    }
+
     public static void mostrarViesMesLlarguesEscola(String nomEscola) {
         Escola escolaSeleccionada = seleccionarEscolaPerNom(nomEscola);
         if (escolaSeleccionada == null) return;

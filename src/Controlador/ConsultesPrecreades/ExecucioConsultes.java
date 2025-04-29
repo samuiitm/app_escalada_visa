@@ -41,6 +41,10 @@ public class ExecucioConsultes {
         ConsultesPrecreades.mostrarEscaladorsAmbNivellMaxim(nivellMaxim);
     }
 
+    public static void executarViesAptesRecentment() {
+        ConsultesPrecreades.mostrarViesAptesRecentment();
+    }
+
     public static void executarViesMesLlarguesEscola() {
         Vista.mostrarMissatge("Introdueix el nom de l'escola:");
         String nomEscola = scanner.nextLine();

@@ -45,6 +45,9 @@ public class MenuConsultes {
                     ExecucioConsultes.executarEscaladorsPerNivellMaxim();
                     break;
                 case 7:
+                    ExecucioConsultes.executarViesAptesRecentment();
+                    break;
+                case 8:
                     ExecucioConsultes.executarViesMesLlarguesEscola();
                     break;
                 case 0:
