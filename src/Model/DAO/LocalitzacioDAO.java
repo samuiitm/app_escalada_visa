@@ -160,7 +160,7 @@ public class LocalitzacioDAO implements CRUD<Localitzacio> {
             if (rs.next()) {
                 nomLocalitzacio = rs.getString("nom");
             } else {
-                throw new NoExisteix("No existeix cap ancoratge amb l'id: " + id);
+                throw new NoExisteix("No existeix cap localització amb l'id: " + id);
             }
 
         } catch (SQLException e) {

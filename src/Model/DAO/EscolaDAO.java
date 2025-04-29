@@ -193,7 +193,7 @@ public class EscolaDAO implements CRUD<Escola> {
             if (rs.next()) {
                 nomEscola = rs.getString("nom");
             } else {
-                throw new NoExisteix("No existeix cap ancoratge amb l'id: " + id);
+                throw new NoExisteix("No existeix cap escola amb l'id: " + id);
             }
 
         } catch (SQLException e) {

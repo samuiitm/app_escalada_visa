@@ -150,7 +150,7 @@ public class DificultatDAO implements CRUD<Dificultat> {
             if (rs.next()) {
                 nomDificultat = rs.getString("nom");
             } else {
-                throw new NoExisteix("No existeix cap ancoratge amb l'id: " + id);
+                throw new NoExisteix("No existeix cap dificultat amb l'id: " + id);
             }
 
         } catch (SQLException e) {

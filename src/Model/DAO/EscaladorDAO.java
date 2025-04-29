@@ -198,7 +198,7 @@ public class EscaladorDAO implements CRUD<Escalador> {
             if (rs.next()) {
                 nomEscalador = rs.getString("nom");
             } else {
-                throw new NoExisteix("No existeix cap ancoratge amb l'id: " + id);
+                throw new NoExisteix("No existeix cap escalador amb l'id: " + id);
             }
 
         } catch (SQLException e) {
