@@ -1,7 +1,7 @@
 package Controlador.LlistarObjecte;
 
 import Model.Constructors.Via;
-import Model.DAO.ViaDAO;
+import Model.DAO.*;
 
 import java.util.List;
 import java.util.Scanner;
@@ -15,6 +15,13 @@ public class LlistarVia {
         String nom = scanner.nextLine();
 
         ViaDAO viaDAO = new ViaDAO();
+
+        TipusViaDAO tipusViaDAO = new TipusViaDAO();
+        AncoratgeDAO ancoratgeDAO = new AncoratgeDAO();
+        TipusRocaDAO tipusRocaDAO = new TipusRocaDAO();
+        SectorDAO sectorDAO = new SectorDAO();
+        MaterialDAO materialDAO = new MaterialDAO();
+        EscaladorDAO escaladorDAO = new EscaladorDAO();
 
         List<Via> vies = ViaDAO.llistarPerNom(nom);
 
@@ -37,14 +44,14 @@ public class LlistarVia {
             if (via != null) {
                 System.out.println("Informació de la via:");
                 System.out.println("Nom: " + via.getNom());
-                System.out.println("Tipus de via: " + via.getIdTipusVia());
+                System.out.println("Tipus de via: " + tipusViaDAO.obtenirPerId(via.getIdTipusVia()));
                 System.out.println("Estat: " + via.getEstat());
                 System.out.println("Orientació: " + via.getOrientacio());
-                System.out.println("Ancoratge: " + via.getIdAncoratge());
-                System.out.println("Tipus de roca: " + via.getIdTipusRoca());
-                System.out.println("Sector: " + via.getIdSector());
-                System.out.println("Material: " + via.getIdMaterial());
-                System.out.println("Creador: " + via.getCreador());
+                System.out.println("Ancoratge: " + ancoratgeDAO.obtenirPerId(via.getIdAncoratge()));
+                System.out.println("Tipus de roca: " + tipusRocaDAO.obtenirPerId(via.getIdTipusRoca()));
+                System.out.println("Sector: " + sectorDAO.obtenirPerId(via.getIdSector()));
+                System.out.println("Material: " + materialDAO.obtenirPerId(via.getIdMaterial()));
+                System.out.println("Creador: " + escaladorDAO.obtenirPerId(via.getCreador()));
             } else {
                 System.out.println("ID no vàlid.");
             }
@@ -52,14 +59,14 @@ public class LlistarVia {
             Via via = vies.get(0);
             System.out.println("Informació de la via:");
             System.out.println("Nom: " + via.getNom());
-            System.out.println("Tipus de via: " + via.getIdTipusVia());
+            System.out.println("Tipus de via: " + tipusViaDAO.obtenirPerId(via.getIdTipusVia()));
             System.out.println("Estat: " + via.getEstat());
             System.out.println("Orientació: " + via.getOrientacio());
-            System.out.println("Ancoratge: " + via.getIdAncoratge());
-            System.out.println("Tipus de roca: " + via.getIdTipusRoca());
-            System.out.println("Sector: " + via.getIdSector());
-            System.out.println("Material: " + via.getIdMaterial());
-            System.out.println("Creador: " + via.getCreador());
+            System.out.println("Ancoratge: " + ancoratgeDAO.obtenirPerId(via.getIdAncoratge()));
+            System.out.println("Tipus de roca: " + tipusRocaDAO.obtenirPerId(via.getIdTipusRoca()));
+            System.out.println("Sector: " + sectorDAO.obtenirPerId(via.getIdSector()));
+            System.out.println("Material: " + materialDAO.obtenirPerId(via.getIdMaterial()));
+            System.out.println("Creador: " + escaladorDAO.obtenirPerId(via.getCreador()));
         }
     }
 }

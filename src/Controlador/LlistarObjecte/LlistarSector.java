@@ -1,6 +1,7 @@
 package Controlador.LlistarObjecte;
 
 import Model.Constructors.Sector;
+import Model.DAO.EscolaDAO;
 import Model.DAO.SectorDAO;
 import Vista.Vista;
 
@@ -15,6 +16,8 @@ public class LlistarSector {
         String nom = scanner.nextLine();
 
         SectorDAO sectorDAO = new SectorDAO();
+
+        EscolaDAO escolaDAO = new EscolaDAO();
 
         List<Sector> sectors = SectorDAO.llistarPerNom(nom);
 
@@ -42,7 +45,7 @@ public class LlistarSector {
                 Vista.mostrarMissatge("Nombre de vies: " + sector.getNumeroVies());
                 Vista.mostrarMissatge("Popularitat: " + sector.getPopularitat());
                 Vista.mostrarMissatge("Restriccions: " + sector.getRestriccions());
-                Vista.mostrarMissatge("ID Escola: " + sector.getIdEscola());
+                Vista.mostrarMissatge("ID Escola: " + escolaDAO.obtenirPerId(sector.getIdEscola()));
             } else {
                 Vista.mostrarMissatge("ID no vàlid.");
             }
@@ -55,7 +58,7 @@ public class LlistarSector {
             Vista.mostrarMissatge("Nombre de vies: " + sector.getNumeroVies());
             Vista.mostrarMissatge("Popularitat: " + sector.getPopularitat());
             Vista.mostrarMissatge("Restriccions: " + sector.getRestriccions());
-            Vista.mostrarMissatge("ID Escola: " + sector.getIdEscola());
+            Vista.mostrarMissatge("ID Escola: " + escolaDAO.obtenirPerId(sector.getIdEscola()));
         }
     }
 }
