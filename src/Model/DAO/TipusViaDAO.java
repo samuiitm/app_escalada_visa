@@ -12,7 +12,7 @@ import java.util.List;
 public class TipusViaDAO implements CRUD<Tipus_Via> {
     @Override
     public void inserir(Tipus_Via tipusVia) {
-        String sql = "INSERT INTO tipus_via (nom) VALUES (?)";
+        String sql = "INSERT INTO tipus_vies (nom) VALUES (?)";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -34,7 +34,7 @@ public class TipusViaDAO implements CRUD<Tipus_Via> {
     @Override
     public Tipus_Via obtenir(int id) {
         Tipus_Via tipusVia = null;
-        String sql = "SELECT * FROM tipus_via WHERE id_tipus_via = ?";
+        String sql = "SELECT * FROM tipus_vies WHERE id_tipus_via = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -59,7 +59,7 @@ public class TipusViaDAO implements CRUD<Tipus_Via> {
     @Override
     public List<Tipus_Via> llistarTots() {
         List<Tipus_Via> llista = new ArrayList<>();
-        String sql = "SELECT * FROM tipus_via";
+        String sql = "SELECT * FROM tipus_vies";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql);
@@ -82,7 +82,7 @@ public class TipusViaDAO implements CRUD<Tipus_Via> {
 
     @Override
     public void actualitzar(Tipus_Via tipusVia) {
-        String sql = "UPDATE tipus_via SET nom=? WHERE id_tipus_via=?";
+        String sql = "UPDATE tipus_vies SET nom=? WHERE id_tipus_via=?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -99,7 +99,7 @@ public class TipusViaDAO implements CRUD<Tipus_Via> {
 
     @Override
     public void eliminar(int id) {
-        String sql = "DELETE FROM tipus_via WHERE id_tipus_via = ?";
+        String sql = "DELETE FROM tipus_vies WHERE id_tipus_via = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -115,7 +115,7 @@ public class TipusViaDAO implements CRUD<Tipus_Via> {
     @Override
     public int obtenirPerNom(String nom) throws NoExisteix {
         int id = -1;
-        String sql = "SELECT id_tipus_via FROM tipus_via WHERE nom = ?";
+        String sql = "SELECT id_tipus_via FROM tipus_vies WHERE nom = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -139,7 +139,7 @@ public class TipusViaDAO implements CRUD<Tipus_Via> {
     @Override
     public String obtenirPerId(int id) throws NoExisteix {
         String nomTipusVia = null;
-        String sql = "SELECT nom FROM tipus_via WHERE id_tipus_via = ?";
+        String sql = "SELECT nom FROM tipus_vies WHERE id_tipus_via = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
