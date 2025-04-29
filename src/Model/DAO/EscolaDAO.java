@@ -155,7 +155,7 @@ public class EscolaDAO implements CRUD<Escola> {
         List<Escola> escoles = new ArrayList<>();
         try {
             Connection conn = ConnexioBD.getConnexio();
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM escolesgit push WHERE nom = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM escoles WHERE nom = ?");
             ps.setString(1, nom);
             ResultSet rs = ps.executeQuery();
 
