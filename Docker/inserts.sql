@@ -64,27 +64,24 @@ INSERT INTO trams (id_via, id_dificultat, llargada) VALUES
 (51, 19, 37), (52, 17, 32), (53, 14, 29), (54, 16, 31), (55, 11, 28), (56, 18, 38), (57, 13, 26), (58, 15, 27), (59, 10, 24), (60, 12, 31);
 
 -- VIES
-INSERT INTO vies (nom, id_tipus_via, estat, orientacio, id_ancoratge, id_tipus_roca, id_sector, creador) VALUES
-('Somni Vertical', 1, 'Apte', 'S', 6, 3, 1, 1), ('Llum d’Estiu', 1, 'Apte', 'E', 7, 1, 2, 2), ('Fissura Roja', 2, 'Apte', 'O', 1, 2, 3, 3),
-('Gel Eterno', 3, 'Apte', 'N', 8, 3, 4, 4), ('Paret dels Somnis', 1, 'Construcció', 'NE', 6, 1, 5, 5), ('Ruta del Vent', 2, 'Apte', 'SO', 1, 4, 6, 6),
-('Cascada de Gel', 3, 'Apte', 'NO', 8, 2, 7, 7), ('El Últim Repte', 1, 'Apte', 'SE', 7, 3, 8, 8), ('Trepitjant el Cel', 1, 'Apte', 'S', 7, 3, 9, 9),
-('Via del Fènix', 1, 'Tancada', 'N', 6, 3, 10, 10), ('Mur de la Llibertat', 1, 'Apte', 'E', 6, 1, 1, 11), ('Camí de Gel', 3, 'Apte', 'O', 8, 2, 2, 12),
-('Somiant l’Amanida', 2, 'Apte', 'S', 2, 3, 3, 13), ('Cresta Blanca', 2, 'Apte', 'N', 2, 4, 4, 14), ('Relliscant pel Gel', 3, 'Construcció', 'NO', 8, 3, 5, 15),
-('Cúpula de Llum', 1, 'Apte', 'SE', 7, 1, 6, 16), ('Camí Perdut', 1, 'Apte', 'SO', 7, 4, 7, 17), ('Penya Segada', 1, 'Apte', 'N', 6, 2, 8, 18),
-('Mur de les Ànimes', 2, 'Tancada', 'O', 1, 2, 9, 19), ('Verticals Blau', 1, 'Apte', 'E', 7, 3, 10, 20), ('Columna de Gel', 3, 'Apte', 'S', 8, 1, 1, 21),
-('Sol Ixent', 1, 'Apte', 'SE', 6, 3, 2, 22), ('Brisa Salada', 1, 'Apte', 'E', 6, 1, 3, 23), ('Espina Daurada', 2, 'Construcció', 'SO', 2, 4, 4, 24),
-('Fosses de Gel', 3, 'Apte', 'N', 8, 2, 5, 25), ('Vèrtex Sud', 1, 'Apte', 'SE', 7, 3, 6, 26), ('La Cripta', 2, 'Tancada', 'NO', 2, 2, 7, 27),
-('Mur Brut', 1, 'Apte', 'N', 6, 3, 8, 28), ('Pont Gèlid', 3, 'Apte', 'NO', 8, 4, 9, 29), ('Ruta de la Boira', 1, 'Apte', 'S', 7, 2, 10, 30),
-('Ombres de Pedra', 1, 'Apte', 'E', 6, 1, 1, 31), ('Gel de Nit', 3, 'Construcció', 'N', 8, 2, 2, 32), ('Torre de Fang', 2, 'Apte', 'SO', 1, 4, 3, 33),
-('Roca Viva', 1, 'Apte', 'SE', 7, 3, 4, 34), ('Camí d’Estrelles', 2, 'Apte', 'NE', 2, 3, 5, 35), ('Columna Salvatge', 1, 'Apte', 'O', 7, 4, 6, 36),
-('Serpentina Blanca', 1, 'Apte', 'NO', 7, 1, 7, 37), ('Món Gèlid', 3, 'Tancada', 'N', 8, 2, 8, 38), ('Sender Vertical', 1, 'Apte', 'SE', 6, 3, 9, 39),
-('Arbre Blau', 2, 'Apte', 'O', 1, 3, 10, 40), ('Límits Infinits', 1, 'Apte', 'E', 7, 2, 1, 41), ('Pont de la Gelor', 3, 'Apte', 'NO', 8, 4, 2, 42),
-('Drecera de Gel', 3, 'Apte', 'N', 8, 1, 3, 43), ('Caminant a l’Horitzó', 1, 'Apte', 'SO', 7, 3, 4, 44), ('Mur del Nord', 1, 'Apte', 'N', 7, 2, 5, 45),
-('Passadís del Gel', 3, 'Construcció', 'NO', 8, 4, 6, 46), ('Parets Vermelles', 2, 'Tancada', 'E', 2, 1, 7, 47), ('Arc de Roca', 1, 'Apte', 'SE', 7, 3, 8, 48),
-('Racó Esborrat', 1, 'Apte', 'SO', 7, 4, 9, 49), ('Glaçada Blanca', 3, 'Apte', 'N', 8, 3, 10, 50), ('Pujada Improbable', 1, 'Apte', 'N', 6, 2, 1, 51),
-('Vertical Sud', 1, 'Apte', 'S', 7, 1, 2, 52), ('Sender Gèlid', 3, 'Apte', 'NO', 8, 4, 3, 53), ('Escletxa de Llum', 1, 'Apte', 'SE', 7, 2, 4, 54),
-('Via de la Tramuntana', 1, 'Apte', 'NE', 7, 3, 5, 55), ('Columna Fosca', 3, 'Tancada', 'O', 8, 2, 6, 56), ('Racó de l’Estiu', 2, 'Apte', 'SO', 2, 1, 7, 57),
-('Gelor Eternal', 3, 'Apte', 'N', 8, 3, 8, 58), ('Pont d’Estrelles', 1, 'Apte', 'E', 7, 4, 9, 59), ('Relliscada Suau', 1, 'Apte', 'S', 7, 1, 10, 60);
+INSERT INTO vies (nom, id_tipus_via, estat, orientacio, id_ancoratge, id_tipus_roca, id_material, id_sector, creador) VALUES
+("Somni Vertical", 1, "Apte", "S", 6, 3, 1, 1, 1), ("Llum d'Estiu", 1, "Apte", "E", 7, 1, 2, 2, 2), ("Fissura Roja", 2, "Apte", "O", 1, 2, 3, 3, 3), ("Gel Eterno", 3, "Apte", "N", 8, 3, 4, 4, 4),
+("Paret dels Somnis", 1, "Construccio", "NE", 6, 1, 5, 5, 5), ("Ruta del Vent", 2, "Apte", "SO", 1, 4, 6, 6, 6), ("Cascada de Gel", 3, "Apte", "NO", 8, 2, 7, 7, 7), ("El Ultim Repte", 1, "Apte", "SE", 7, 3, 8, 8, 8),
+("Trepitjant el Cel", 1, "Apte", "S", 7, 3, 9, 9, 9), ("Via del Fenix", 1, "Tancada", "N", 6, 3, 10, 10, 10), ("Mur de la Llibertat", 1, "Apte", "E", 6, 1, 11, 1, 11), ("Cami de Gel", 3, "Apte", "O", 8, 2, 12, 2, 12),
+("Somiant l'Amanida", 2, "Apte", "S", 2, 3, 13, 3, 13), ("Cresta Blanca", 2, "Apte", "N", 2, 4, 14, 4, 14), ("Relliscant pel Gel", 3, "Construccio", "NO", 8, 3, 15, 5, 15), ("Cupula de Llum", 1, "Apte", "SE", 7, 1, 16, 6, 16),
+("Cami Perdut", 1, "Apte", "SO", 7, 4, 17, 7, 17), ("Penya Segada", 1, "Apte", "N", 6, 2, 18, 8, 18), ("Mur de les Animes", 2, "Tancada", "O", 1, 2, 19, 9, 19), ("Verticals Blau", 1, "Apte", "E", 7, 3, 20, 10, 20),
+("Columna de Gel", 3, "Apte", "S", 8, 1, 21, 1, 21), ("Sol Ixent", 1, "Apte", "SE", 6, 3, 22, 2, 22), ("Brisa Salada", 1, "Apte", "E", 6, 1, 1, 3, 23), ("Espina Daurada", 2, "Construccio", "SO", 2, 4, 2, 4, 24),
+("Fosses de Gel", 3, "Apte", "N", 8, 2, 3, 5, 25), ("Vertex Sud", 1, "Apte", "SE", 7, 3, 4, 6, 26), ("La Cripta", 2, "Tancada", "NO", 2, 2, 5, 7, 27), ("Mur Brut", 1, "Apte", "N", 6, 3, 6, 8, 28),
+("Pont Gelid", 3, "Apte", "NO", 8, 4, 7, 9, 29), ("Ruta de la Boira", 1, "Apte", "S", 7, 2, 8, 10, 30), ("Ombres de Pedra", 1, "Apte", "E", 6, 1, 9, 1, 31), ("Gel de Nit", 3, "Construccio", "N", 8, 2, 10, 2, 32),
+("Torre de Fang", 2, "Apte", "SO", 1, 4, 11, 3, 33), ("Roca Viva", 1, "Apte", "SE", 7, 3, 12, 4, 34), ("Cami d'Estrelles", 2, "Apte", "NE", 2, 3, 13, 5, 35), ("Columna Salvatge", 1, "Apte", "O", 7, 4, 14, 6, 36),
+("Serpentina Blanca", 1, "Apte", "NO", 7, 1, 15, 7, 37), ("Mon Gelid", 3, "Tancada", "N", 8, 2, 16, 8, 38), ("Sender Vertical", 1, "Apte", "SE", 6, 3, 17, 9, 39), ("Arbre Blau", 2, "Apte", "O", 1, 3, 18, 10, 40),
+("Limits Infinits", 1, "Apte", "E", 7, 2, 19, 1, 41), ("Pont de la Gelor", 3, "Apte", "NO", 8, 4, 20, 2, 42), ("Drecera de Gel", 3, "Apte", "N", 8, 1, 21, 3, 43), ("Caminant a l'Horitzo", 1, "Apte", "SO", 7, 3, 22, 4, 44),
+("Mur del Nord", 1, "Apte", "N", 7, 2, 1, 5, 45), ("Passadis del Gel", 3, "Construccio", "NO", 8, 4, 2, 6, 46), ("Parets Vermelles", 2, "Tancada", "E", 2, 1, 3, 7, 47), ("Arc de Roca", 1, "Apte", "SE", 7, 3, 4, 8, 48),
+("Raco Esborrat", 1, "Apte", "SO", 7, 4, 5, 9, 49), ("Glacada Blanca", 3, "Apte", "N", 8, 3, 6, 10, 50), ("Pujada Improbable", 1, "Apte", "N", 6, 2, 7, 1, 51), ("Vertical Sud", 1, "Apte", "S", 7, 1, 8, 2, 52),
+("Sender Gelid", 3, "Apte", "NO", 8, 4, 9, 3, 53), ("Escletxa de Llum", 1, "Apte", "SE", 7, 2, 10, 4, 54), ("Via de la Tramuntana", 1, "Apte", "NE", 7, 3, 11, 5, 55), ("Columna Fosca", 3, "Tancada", "O", 8, 2, 12, 6, 56),
+("Raco de l'Estiu", 2, "Apte", "SO", 2, 1, 13, 7, 57), ("Gelor Eternal", 3, "Apte", "N", 8, 3, 14, 8, 58), ("Pont d'Estrelles", 1, "Apte", "E", 7, 4, 15, 9, 59), ("Relliscada Suau", 1, "Apte", "S", 7, 1, 16, 10, 60);
+
+
 
 -- ESCALADORS ADDICIONALS
 INSERT INTO escaladors (nom, alies, edat, nivell_maxim, via_nivell_max, estil_preferit) VALUES
@@ -97,7 +94,8 @@ INSERT INTO escaladors (nom, alies, edat, nivell_maxim, via_nivell_max, estil_pr
 ('Xavier Soler', 'Dofí', 30, '7c+', 23, 'Esportiva'), ('Judith Mir', 'Orella', 23, '6b+', 24, 'Gel'), ('Pere Bosch', 'Aligot', 29, '7a', 25, 'Clàssica'),
 ('Aina Vidal', 'Brisa', 24, '6c', 26, 'Esportiva'), ('Jordi Vidal', 'Falcó', 27, '7b+', 27, 'Gel'), ('Carme Rovira', 'Esquirol', 25, '6b', 28, 'Esportiva'),
 ('David Font', 'Àguila', 30, '7c', 29, 'Clàssica'), ('Irene Sala', 'Drac', 28, '7a+', 30, 'Gel'), ('Toni Roca', 'Foca', 26, '6c+', 31, 'Esportiva'),
-('Clara Vidal', 'Garça', 23, '6b+', 32, 'Clàssica'), ('Ferran Grau', 'Tortuga', 31, '7b', 33, 'Esportiva'), ('Elena Vila', 'Voltor', 27, '7a', 34, 'Gel'), ('Elena Vila', 'Esquirol', 21, '7c', 28, 'Esportiva');
+('Clara Vidal', 'Garça', 23, '6b+', 32, 'Clàssica'), ('Ferran Grau', 'Tortuga', 31, '7b', 33, 'Esportiva'), ('Elena Vila', 'Voltor', 27, '7a', 34, 'Gel'),
+('Elena Vila', 'Esquirol', 21, '7c', 28, 'Esportiva');
 
 -- HISTORIAL_ESTATS_VIES
 INSERT INTO historial_estats_vies (id_via, estat_previ, estat_actual, data_canvi) VALUES

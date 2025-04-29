@@ -150,7 +150,7 @@ public class MaterialDAO implements CRUD<Material> {
             if (rs.next()) {
                 nomMaterial = rs.getString("nom");
             } else {
-                throw new NoExisteix("No existeix cap ancoratge amb l'id: " + id);
+                throw new NoExisteix("No existeix cap material amb l'id: " + id);
             }
 
         } catch (SQLException e) {
