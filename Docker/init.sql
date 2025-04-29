@@ -99,6 +99,7 @@ CREATE TABLE vies (
     orientacio          ENUM('N', 'NE', 'NO', 'SE', 'SO', 'E', 'O', 'S'),
     id_ancoratge        INT UNSIGNED 			COMMENT "(FK ancoratges)",
     id_tipus_roca       INT UNSIGNED			COMMENT "(FK tipus_roca)",
+    id_material         INT UNSIGNED            COMMENT "(FK a materials)",
     id_sector           INT UNSIGNED			COMMENT "(FK sectors)",
     creador        		INT UNSIGNED 			COMMENT "(FK escaladors)",
     CONSTRAINT pk_vies PRIMARY KEY (id_via)
@@ -134,4 +135,6 @@ ALTER TABLE vies
     ADD CONSTRAINT fk_vies_sectors FOREIGN KEY (id_sector)
         REFERENCES sectors(id_sector),
     ADD CONSTRAINT fk_vies_escalador FOREIGN KEY (creador)
-        REFERENCES escaladors(id_escalador);
+        REFERENCES escaladors(id_escalador),
+    ADD CONSTRAINT fk_vies_materials FOREIGN KEY (id_material)
+        REFERENCES materials(id_material);

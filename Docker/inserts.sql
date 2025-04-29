@@ -97,7 +97,7 @@ INSERT INTO escaladors (nom, alies, edat, nivell_maxim, via_nivell_max, estil_pr
 ('Xavier Soler', 'Dofí', 30, '7c+', 23, 'Esportiva'), ('Judith Mir', 'Orella', 23, '6b+', 24, 'Gel'), ('Pere Bosch', 'Aligot', 29, '7a', 25, 'Clàssica'),
 ('Aina Vidal', 'Brisa', 24, '6c', 26, 'Esportiva'), ('Jordi Vidal', 'Falcó', 27, '7b+', 27, 'Gel'), ('Carme Rovira', 'Esquirol', 25, '6b', 28, 'Esportiva'),
 ('David Font', 'Àguila', 30, '7c', 29, 'Clàssica'), ('Irene Sala', 'Drac', 28, '7a+', 30, 'Gel'), ('Toni Roca', 'Foca', 26, '6c+', 31, 'Esportiva'),
-('Clara Vidal', 'Garça', 23, '6b+', 32, 'Clàssica'), ('Ferran Grau', 'Tortuga', 31, '7b', 33, 'Esportiva'), ('Elena Vila', 'Voltor', 27, '7a', 34, 'Gel');
+('Clara Vidal', 'Garça', 23, '6b+', 32, 'Clàssica'), ('Ferran Grau', 'Tortuga', 31, '7b', 33, 'Esportiva'), ('Elena Vila', 'Voltor', 27, '7a', 34, 'Gel'), ('Elena Vila', 'Esquirol', 21, '7c', 28, 'Esportiva');
 
 -- HISTORIAL_ESTATS_VIES
 INSERT INTO historial_estats_vies (id_via, estat_previ, estat_actual, data_canvi) VALUES
