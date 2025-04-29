@@ -173,14 +173,14 @@ public class SectorDAO implements CRUD<Sector> {
 
             while (rs.next()) {
                 Sector sector = new Sector(
-                        rs.getInt("id_sector"),
+                        rs.getInt("idSector"),
                         rs.getString("nom"),
                         rs.getString("coordenades"),
                         rs.getString("aproximacio"),
-                        rs.getInt("numero_vies"),
+                        rs.getInt("numeroVies"),
                         rs.getString("popularitat"),
                         rs.getString("restriccions"),
-                        rs.getInt("id_escola")
+                        rs.getInt("idEscola")
                 );
                 sectors.add(sector);
             }

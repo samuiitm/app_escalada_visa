@@ -180,16 +180,16 @@ public class ViaDAO implements CRUD<Via> {
 
             while (rs.next()) {
                 Via via = new Via(
-                        rs.getInt("id_via"),
+                        rs.getInt("idVia"),
                         rs.getString("nom"),
-                        rs.getInt("id_tipus_via"),
+                        rs.getInt("idTipusVia"),
                         rs.getString("estat"),
                         rs.getString("orientacio"),
-                        rs.getInt("id_ancoratge"),
-                        rs.getInt("id_tipus_roca"),
-                        rs.getInt("id_sector"),
-                        rs.getInt("id_material"),
-                        rs.getInt("creador")
+                        rs.getInt("idAncoratge"),
+                        rs.getInt("idTipusRoca"),
+                        rs.getInt("idSector"),
+                        rs.getInt("idMaterial"),
+                        rs.getInt("idCreador")
                 );
                 vies.add(via);
             }
