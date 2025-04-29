@@ -32,7 +32,7 @@ public class EscaladorDAO implements CRUD<Escalador> {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace(); // Pots mostrar-ho per consola amb la vista si vols
+            e.printStackTrace();
         }
     }
 
@@ -160,19 +160,19 @@ public class EscaladorDAO implements CRUD<Escalador> {
         List<Escalador> escaladors = new ArrayList<>();
         try {
             Connection conn = ConnexioBD.getConnexio();
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Escalador WHERE nom = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM escaladors WHERE nom = ?");
             ps.setString(1, nom);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Escalador escalador = new Escalador(
-                        rs.getInt("idEscalador"),
+                        rs.getInt("id_escalador"),
                         rs.getString("nom"),
                         rs.getString("alies"),
                         rs.getInt("edat"),
-                        rs.getString("nivellMaxim"),
-                        rs.getInt("viaNivellMaxim"),
-                        rs.getString("estilPreferit")
+                        rs.getString("nivell_maxim"),
+                        rs.getInt("via_nivell_max"),
+                        rs.getString("estil_preferit")
                 );
                 escaladors.add(escalador);
             }

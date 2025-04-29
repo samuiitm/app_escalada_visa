@@ -161,11 +161,11 @@ public class EscolaDAO implements CRUD<Escola> {
 
             while (rs.next()) {
                 Escola escola = new Escola(
-                        rs.getInt("idEscola"),
+                        rs.getInt("id_escola"),
                         rs.getString("nom"),
-                        rs.getInt("idLocalitzacio"),
+                        rs.getInt("id_localitzacio"),
                         rs.getString("aproximacio"),
-                        rs.getInt("numeroVies"),
+                        rs.getInt("numero_vies"),
                         rs.getString("popularitat"),
                         rs.getString("restriccions")
                 );
