@@ -167,7 +167,7 @@ public class SectorDAO implements CRUD<Sector> {
         List<Sector> sectors = new ArrayList<>();
         try {
             Connection conn = ConnexioBD.getConnexio();
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Sector WHERE nom = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM sectors WHERE nom = ?");
             ps.setString(1, nom);
             ResultSet rs = ps.executeQuery();
 

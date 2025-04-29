@@ -13,7 +13,7 @@ public class ViaDAO implements CRUD<Via> {
 
     @Override
     public void inserir(Via via) {
-        String sql = "INSERT INTO vias (nom, id_tipus_via, estat, orientacio, id_ancoratge, id_tipus_roca, id_sector, id_material, creador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO vies (nom, id_tipus_via, estat, orientacio, id_ancoratge, id_tipus_roca, id_sector, id_material, creador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -44,7 +44,7 @@ public class ViaDAO implements CRUD<Via> {
     @Override
     public Via obtenir(int id) {
         Via via = null;
-        String sql = "SELECT * FROM vias WHERE id_via = ?";
+        String sql = "SELECT * FROM vies WHERE id_via = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -77,7 +77,7 @@ public class ViaDAO implements CRUD<Via> {
     @Override
     public List<Via> llistarTots() {
         List<Via> llista = new ArrayList<>();
-        String sql = "SELECT * FROM vias";
+        String sql = "SELECT * FROM vies";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql);
@@ -108,7 +108,7 @@ public class ViaDAO implements CRUD<Via> {
 
     @Override
     public void actualitzar(Via via) {
-        String sql = "UPDATE vias SET nom=?, id_tipus_via=?, estat=?, orientacio=?, id_ancoratge=?, id_tipus_roca=?, id_sector=?, id_material=?, creador=? WHERE id_via=?";
+        String sql = "UPDATE vies SET nom=?, id_tipus_via=?, estat=?, orientacio=?, id_ancoratge=?, id_tipus_roca=?, id_sector=?, id_material=?, creador=? WHERE id_via=?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -133,7 +133,7 @@ public class ViaDAO implements CRUD<Via> {
 
     @Override
     public void eliminar(int id) {
-        String sql = "DELETE FROM vias WHERE id_via = ?";
+        String sql = "DELETE FROM vies WHERE id_via = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -174,7 +174,7 @@ public class ViaDAO implements CRUD<Via> {
         List<Via> vies = new ArrayList<>();
         try {
             Connection conn = ConnexioBD.getConnexio();
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM Via WHERE nom = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM vies WHERE nom = ?");
             ps.setString(1, nom);
             ResultSet rs = ps.executeQuery();
 
