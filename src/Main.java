@@ -52,6 +52,11 @@ public class Main {
                     MenuConsultes.menuConsultes();
                     break;
 
+                // SORTIR DEL PROGRAMA
+                case 0:
+                    Vista.mostrarMissatge("Sortint del programa...");
+                    break;
+
                 // CAS DEFAULT
                 default:
                     Vista.mostrarMissatge("L'opció introduida no es vàlida. Si us plau, introdueix una opció del menú");
