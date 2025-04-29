@@ -158,7 +158,7 @@ public class LocalitzacioDAO implements CRUD<Localitzacio> {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                nomLocalitzacio = rs.getString("nom");
+                nomLocalitzacio = rs.getString("ciutat");
             } else {
                 throw new NoExisteix("No existeix cap localització amb l'id: " + id);
             }
