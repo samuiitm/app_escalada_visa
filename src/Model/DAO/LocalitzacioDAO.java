@@ -125,7 +125,7 @@ public class LocalitzacioDAO implements CRUD<Localitzacio> {
     @Override
     public int obtenirPerNom(String nom) throws NoExisteix {
         int id = -1;
-        String sql = "SELECT id_localitzacio FROM localitzacions WHERE nom = ?";
+        String sql = "SELECT id_localitzacio FROM localitzacions WHERE ciutat = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
