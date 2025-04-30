@@ -117,11 +117,11 @@ CREATE TABLE historial_estats_vies (
 
 ALTER TABLE escaladors
 	ADD CONSTRAINT fk_escaladors_vies FOREIGN KEY (via_nivell_max)
-		REFERENCES vies(id_via);
+		REFERENCES vies(id_via) ON DELETE SET NULL;
 
 ALTER TABLE trams
 	ADD CONSTRAINT fk_trams_vies FOREIGN KEY (id_via)
-		REFERENCES vies(id_via),
+		REFERENCES vies(id_via) ON DELETE CASCADE,
 	ADD CONSTRAINT fk_trams_dificultat FOREIGN KEY (id_dificultat)
 		REFERENCES dificultats(id_dificultat);
 
@@ -133,8 +133,8 @@ ALTER TABLE vies
     ADD CONSTRAINT fk_vies_tipus_roca FOREIGN KEY (id_tipus_roca)
         REFERENCES tipus_roques(id_tipus_roca),
     ADD CONSTRAINT fk_vies_sectors FOREIGN KEY (id_sector)
-        REFERENCES sectors(id_sector),
+        REFERENCES sectors(id_sector) ON DELETE SET NULL,
     ADD CONSTRAINT fk_vies_escalador FOREIGN KEY (creador)
-        REFERENCES escaladors(id_escalador),
+        REFERENCES escaladors(id_escalador) ON DELETE SET NULL,
     ADD CONSTRAINT fk_vies_materials FOREIGN KEY (id_material)
         REFERENCES materials(id_material);

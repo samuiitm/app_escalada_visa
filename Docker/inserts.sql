@@ -63,7 +63,7 @@ INSERT INTO trams (id_via, id_dificultat, llargada) VALUES
 (41, 17, 35), (42, 18, 36), (43, 14, 30), (44, 11, 26), (45, 19, 39), (46, 13, 24), (47, 16, 33), (48, 15, 27), (49, 10, 25), (50, 12, 30),
 (51, 19, 37), (52, 17, 32), (53, 14, 29), (54, 16, 31), (55, 11, 28), (56, 18, 38), (57, 13, 26), (58, 15, 27), (59, 10, 24), (60, 12, 31);
 
--º- VIES
+-- VIES
 INSERT INTO vies (nom, id_tipus_via, estat, orientacio, id_ancoratge, id_tipus_roca, id_material, id_sector, creador) VALUES
 ('Somni Vertical', 1, 'Apte', 'S', 6, 3, 1, 1, 1),
 ('Llum d’Estiu', 1, 'Apte', 'E', 7, 1, 2, 2, 2),
