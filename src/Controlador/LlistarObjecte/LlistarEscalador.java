@@ -28,7 +28,7 @@ public class LlistarEscalador {
         if (escaladors.size() > 1) {
             Vista.mostrarMissatge("Escaladors trobats:");
             for (Escalador e : escaladors) {
-                Vista.mostrarMissatge("ID: " + escaladorDAO.obtenirPerId(e.getIdEscalador()) + " | Nom: " + e.getNom() +
+                Vista.mostrarMissatge("ID: " + e.getIdEscalador() + " | Nom: " + e.getNom() +
                         " | Àlies: " + e.getAlies() + " | Edat: " + e.getEdat());
             }
 
@@ -42,7 +42,7 @@ public class LlistarEscalador {
                 Vista.mostrarMissatge("Àlies: " + escalador.getAlies());
                 Vista.mostrarMissatge("Edat: " + escalador.getEdat());
                 Vista.mostrarMissatge("Nivell màxim: " + escalador.getNivellMaxim());
-                Vista.mostrarMissatge("ID de la via més difícil: " + viaDAO.obtenirPerId(escalador.getViaNivellMaxim()));
+                Vista.mostrarMissatge("Via més difícil: " + viaDAO.obtenirPerId(escalador.getViaNivellMaxim()));
                 Vista.mostrarMissatge("Estil preferit: " + escalador.getEstilPreferit());
             } else {
                 Vista.mostrarMissatge("ID no vàlid.");
@@ -54,7 +54,7 @@ public class LlistarEscalador {
             Vista.mostrarMissatge("Àlies: " + escalador.getAlies());
             Vista.mostrarMissatge("Edat: " + escalador.getEdat());
             Vista.mostrarMissatge("Nivell màxim: " + escalador.getNivellMaxim());
-            Vista.mostrarMissatge("ID de la via més difícil: " + viaDAO.obtenirPerId(escalador.getViaNivellMaxim()));
+            Vista.mostrarMissatge("Via més difícil: " + viaDAO.obtenirPerId(escalador.getViaNivellMaxim()));
             Vista.mostrarMissatge("Estil preferit: " + escalador.getEstilPreferit());
         }
     }

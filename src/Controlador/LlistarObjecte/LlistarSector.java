@@ -45,7 +45,7 @@ public class LlistarSector {
                 Vista.mostrarMissatge("Nombre de vies: " + sector.getNumeroVies());
                 Vista.mostrarMissatge("Popularitat: " + sector.getPopularitat());
                 Vista.mostrarMissatge("Restriccions: " + sector.getRestriccions());
-                Vista.mostrarMissatge("ID Escola: " + escolaDAO.obtenirPerId(sector.getIdEscola()));
+                Vista.mostrarMissatge("Escola: " + escolaDAO.obtenirPerId(sector.getIdEscola()));
             } else {
                 Vista.mostrarMissatge("ID no vàlid.");
             }
@@ -58,7 +58,7 @@ public class LlistarSector {
             Vista.mostrarMissatge("Nombre de vies: " + sector.getNumeroVies());
             Vista.mostrarMissatge("Popularitat: " + sector.getPopularitat());
             Vista.mostrarMissatge("Restriccions: " + sector.getRestriccions());
-            Vista.mostrarMissatge("ID Escola: " + escolaDAO.obtenirPerId(sector.getIdEscola()));
+            Vista.mostrarMissatge("Escola: " + escolaDAO.obtenirPerId(sector.getIdEscola()));
         }
     }
 }

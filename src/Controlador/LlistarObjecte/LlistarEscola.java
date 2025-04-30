@@ -39,7 +39,7 @@ public class LlistarEscola {
             if (escola != null) {
                 Vista.mostrarMissatge("Informació de l'escola:");
                 Vista.mostrarMissatge("Nom: " + escola.getNom());
-                Vista.mostrarMissatge("ID Localització: " + localitzacioDAO.obtenirPerId(escola.getIdLocalitzacio()));
+                Vista.mostrarMissatge("Localització: " + localitzacioDAO.obtenirPerId(escola.getIdLocalitzacio()));
                 Vista.mostrarMissatge("Aproximació: " + escola.getAproximacio());
                 Vista.mostrarMissatge("Nombre de vies: " + escola.getNumeroVies());
                 Vista.mostrarMissatge("Popularitat: " + escola.getPopularitat());
@@ -51,7 +51,7 @@ public class LlistarEscola {
             Escola escola = escoles.get(0);
             Vista.mostrarMissatge("Informació de l'escola:");
             Vista.mostrarMissatge("Nom: " + escola.getNom());
-            Vista.mostrarMissatge("ID Localització: " + localitzacioDAO.obtenirPerId(escola.getIdLocalitzacio()));
+            Vista.mostrarMissatge("Localització: " + localitzacioDAO.obtenirPerId(escola.getIdLocalitzacio()));
             Vista.mostrarMissatge("Aproximació: " + escola.getAproximacio());
             Vista.mostrarMissatge("Nombre de vies: " + escola.getNumeroVies());
             Vista.mostrarMissatge("Popularitat: " + escola.getPopularitat());
