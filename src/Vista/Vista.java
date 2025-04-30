@@ -31,7 +31,7 @@ public class Vista {
 
     public static void mostrarMenuLlistarTots() {
         System.out.println("-----------------------------------\n" +
-                           "-------- LLISTAR TOTS --------\n" +
+                           "---------- LLISTAR TOTS -----------\n" +
                            "-----------------------------------\n" +
                            "1.\tEscalador\n" +
                            "2.\tEscola\n" +
@@ -53,7 +53,7 @@ public class Vista {
 
     public static void mostrarMenuLlistarObjecte() {
         System.out.println("-----------------------------------\n" +
-                           "-------- LLISTAR OBJECTE --------\n" +
+                           "--------- LLISTAR OBJECTE ---------\n" +
                            "-----------------------------------\n" +
                            "1.\tEscalador\n" +
                            "2.\tEscola\n" +
@@ -64,7 +64,7 @@ public class Vista {
 
     public static void mostrarMenuEliminar() {
         System.out.println("-----------------------------------\n" +
-                           "----------- ELIMINAR OBJECTE --------\n" +
+                           "--------- ELIMINAR OBJECTE --------\n" +
                            "-----------------------------------\n" +
                            "1.\tEscalador\n" +
                            "2.\tEscola\n" +
@@ -83,7 +83,7 @@ public class Vista {
                            "4.\tConsultar escoles amb restriccions\n" +
                            "5.\tMostrar sectors amb més de X vies\n" +
                            "6.\tMostrar escaladors amb el mateix nivell màxim\n" +
-                           "7.\tMostrar vies que han passat a 'Apte' recentment" +
+                           "7.\tMostrar vies que han passat a 'Apte' recentment\n" +
                            "8.\tMostrar vies més llargues d'una escola\n" +
                            "0.\tTornar\n");
     }

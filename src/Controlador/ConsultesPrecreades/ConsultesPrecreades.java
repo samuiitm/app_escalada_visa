@@ -96,9 +96,9 @@ public class ConsultesPrecreades {
 
     public static void cercarViesPerDificultat(String dificultat) {
         String sql = "SELECT v.id_via, v.nom, d.nom AS dificultat FROM vies v " +
-                "JOIN trams t ON v.id_via = t.id_via " +
-                "JOIN dificultats d ON t.id_dificultat = d.id_dificultat " +
-                "WHERE d.nom = ?";
+                     "JOIN trams t ON v.id_via = t.id_via " +
+                     "JOIN dificultats d ON t.id_dificultat = d.id_dificultat " +
+                     "WHERE d.nom = ?";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -154,7 +154,7 @@ public class ConsultesPrecreades {
     }
 
     public static void consultarEscolesAmbRestriccions() {
-        String sql = "SELECT id_escola, nom, restriccions FROM escoles WHERE restriccions IS NOT NULL AND restriccions != ''";
+        String sql = "SELECT id_escola, nom, restriccions FROM escoles WHERE restriccions IS NOT NULL AND restriccions != 'Cap'";
 
         try (Connection conn = ConnexioBD.getConnexio();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
